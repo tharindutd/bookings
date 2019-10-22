@@ -748,13 +748,16 @@ input[id="check_2"] {
 }
 
 #l-start {
-    color: #f39c12;
-    font-size: 13px;
+    color: #fdbd40;
+    font-size: 10px;
     font-weight: lighter;
 }
 
+#content-side {
+    padding-left: 0px;
+}
 #finger i {
-    background-color: #f39c12;
+    background-color: #fdbd40;
     padding: 5px;
     color: bisque;
     border-radius: 5px;

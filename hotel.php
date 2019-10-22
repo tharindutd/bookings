@@ -855,14 +855,14 @@ require 'header.php';
 
             <div class="row" id="fu">
                 <div class="col-lg-2 col-md-2 col-xs-12 pics A" style="background-color: #0AB21B">
-                    OUR TOP PICS
+                    Our Top Picks
+                </div>
+                <div class="col-lg-2 col-xs-12  col-md-2  pics C">
+                    Show homes first
+<!--                    <i class="fas fa-sort-down" style="color: #d35400; font-size: 15px;"></i>-->
                 </div>
                 <div style="font-size: 12px;" class="col-lg-2 col-md-2  col-xs-12 pics B">
                     GOOD-SUPERB
-                </div>
-                <div class="col-lg-2 col-xs-12  col-md-2  pics C">
-                    APARTMENT
-<!--                    <i class="fas fa-sort-down" style="color: #d35400; font-size: 15px;"></i>-->
                 </div>
                 <div class="col-lg-3  col-md-3  col-xs-12 pics D">
                     BEACH FRONT

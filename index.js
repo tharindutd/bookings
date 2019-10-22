@@ -361,7 +361,7 @@ function loadDataforuniqdistrict(destinationtype, cityid, destination) {
                 $('#prpertfound').html('' + tempwhere + ': ' + data['result'].length + ' properties found ');
                 loadpagination(data);
                 // console.log(data);
-                dataforsuperb = dat
+                dataforsuperb = data
             } else {
                 $('#prpertfound').html('There Are No Found Any Result For Your Request');
                 // $('.wrap').show();
@@ -2836,7 +2836,13 @@ console.log('loaded');
                 console.log(dis);
                 console.log(data['result'][0]['hotel_data']['hotel_description']);
 
-                var dataset = '<div id="content-init"><div class="row" style="margin: auto;"><div id="img-content" class="col-lg-4 col-md-5 col-sm-12 col-xs-12">' + facil + '<img src="' + data['result'][0]['hotel_data']['hotel_photos'][0]['url_original'] + '" alt="" id="img"></div><div id="content-side" class="col-lg-8 col-md-7 col-sm-12 col-xs-12"><div class="row" style="margin: auto;"><div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 " id="left-set"><span id="ishoteltype">' + hoteltype + '</span><span id="l-hotel-name" onclick="forindiv(this)" class="' + data['result'][0]['hotel_id'] + '">' + data['result'][0]['hotel_data']['name'] + '</span><br><span id="l-start">' + star + '</span><br><span id="map-img"><i class="fas fa-map-marker-alt"></i></span><span id="address-txt">' + data['result'][0]['hotel_data']['address'] + ', ' + data['result'][0]['hotel_data']['city'] + '</span><p id="welcome-msg">' + dis + '</p>' + ccr + '</div><div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" id="right-set"><div style="padding-left: 20px;  width: 100%"><div id="lf" style=" float: left;"><span id="type-fab">' + ratingtype + '</span><br><span id="type-rew">' + data['result'][0]['hotel_data']['number_of_reviews'] + ' Reviews</span></div><div id="lri" style="float: left;"><p id="rate-txt">' + rescor + '</p></div></div><div id="btn-show-price"><input type="button" value="Show Prices" class="btn btn-primary btn-sh" id="'+data['result'][0]['hotel_id']+'" onclick="loadshowprice2(this)"></div></div></div></div></div></div>';
+                var number_of_reviews = 0;
+
+                if (typeof data['result'][0]['hotel_data']['number_of_reviews'] != 'undefined') {
+                    number_of_reviews = reviewsdata['result'][0]['hotel_data']['number_of_reviews'];
+                }
+
+                var dataset = '<div id="content-init"><div class="row" style="margin: auto;"><div id="img-content" class="col-lg-4 col-md-5 col-sm-12 col-xs-12">' + facil + '<img src="' + data['result'][0]['hotel_data']['hotel_photos'][0]['url_original'] + '" alt="" id="img"></div><div id="content-side" class="col-lg-8 col-md-7 col-sm-12 col-xs-12"><div class="row" style="margin: auto;margin-top: 10px;"><div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 " id="left-set"><span id="ishoteltype">' + hoteltype + '</span><span id="l-hotel-name" onclick="forindiv(this)" class="' + data['result'][0]['hotel_id'] + '">' + data['result'][0]['hotel_data']['name'] + '</span><div style="margin-left:5px; display:inline;"><span id="l-start">' + star + '</span></div><br><span id="map-img"><i class="fas fa-map-marker-alt"></i></span><span id="address-txt">' + data['result'][0]['hotel_data']['address'] + ', ' + data['result'][0]['hotel_data']['city'] + '</span><p id="welcome-msg">' + dis + '</p>' + ccr + '</div><div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" id="right-set"><div style="padding-left: 20px;  width: 100%"><div id="lf" style=" float: left;"><span id="type-fab">' + ratingtype + '</span><br><span id="type-rew">' + number_of_reviews + ' Reviews</span></div><div id="lri" style="float: left;"><p id="rate-txt">' + rescor + '</p></div></div><div id="btn-show-price"><input type="button" value="Show Prices" class="btn btn-primary btn-sh" id="'+data['result'][0]['hotel_id']+'" onclick="loadshowprice2(this)"></div></div></div></div></div></div>';
 
                 $('#details').append(dataset);
                 // $('.wrap').show();
