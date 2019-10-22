@@ -1,0 +1,985 @@
+
+
+
+/* Paste this css to your style sheet file or under head tag */
+/* This only works with JavaScript,
+if it's not present, don't show loader */
+.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url(Preloader_3.gif) center no-repeat #fff;
+}
+
+
+
+
+/*pagination*/
+
+
+.wrapper{
+    margin: 60px auto;
+    text-align: center;
+}
+h1{
+    margin-bottom: 1.25em;
+}
+#pagination-demo{
+    display: inline-block;
+    margin-bottom: 1.75em;
+}
+#pagination-demo li{
+    display: inline-block;
+}
+
+.page-content{
+    background: #eee;
+    display: inline-block;
+    padding: 10px;
+    width: 100%;
+    max-width: 660px;
+}
+
+/*pagination*/
+
+
+
+#loaddiv {
+    width: 100%;
+    position: fixed;
+    background-color: white;
+    height: 100%;
+}
+
+.wrap {
+    width: 85%;
+    height: auto;
+    /*border: 1px solid #231418;*/
+    margin-left: 7.5%;
+    padding: 0px;
+}
+
+#main-row {
+    /*border: 1px solid black;*/
+    height: auto;
+    padding: 0px;
+    margin: 0px;
+}
+
+#left-side {
+    /*border: 1px solid black;*/
+    height: auto;
+}
+
+#right-side {
+    /*border: 1px solid black;*/
+    height: auto;
+}
+
+#main-search {
+    width: 100%;
+    height: auto;
+    background-color: #FEBB02;
+    margin-top: 20px;
+    border-radius: 5px;
+    padding-top: 15px;
+}
+
+#adult {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 25px;
+}
+
+#search-btn {
+    margin-bottom: 20px;
+    font-size: 23px;
+    width: 110px;
+}
+
+#search-btn:hover {
+    background-color: #003580;
+}
+
+
+#search-btn1 {
+    margin-bottom: 20px;
+    font-size: 23px;
+    width: 110px;
+}
+
+#search-btn1:hover {
+    background-color: #003580;
+}
+
+#aa {
+    text-align: right;
+    width: 90%;
+    margin-left: 5%;
+}
+
+#child {
+    width: 48%;
+    font-size: 12px;
+    float: left;
+    height: 35px;
+}
+
+#room {
+    width: 48%;
+    font-size: 12px;
+    float: right;
+    height: 35px;
+}
+
+#map-view {
+    width: 90%;
+    height: 150px;
+    border: 1px solid darkslategray;
+    margin-left: 5%;
+}
+
+#ch {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 15px;
+}
+
+.ch-box {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5px;
+}
+
+#qu {
+    font-size: 15px;
+    color: black;
+}
+
+#qu:hover {
+    cursor: help;
+}
+
+/*strt tool tip*/
+
+[data-title]:hover {
+    position: relative;
+    cursor: help;
+}
+
+[data-title]:hover::before {
+    content: attr(data-title);
+    position: absolute;
+    bottom: -26px;
+    display: inline-block;
+    padding: 3px 6px;
+    border-radius: 2px;
+    background: #000;
+    color: #0097e6;
+    font-size: 12px;
+    font-family: sans-serif;
+    white-space: nowrap;
+
+}
+
+[data-title]:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 8px;
+    display: inline-block;
+    color: #0097e6;
+    border: 8px solid transparent;
+    border-bottom: 8px solid #000;
+
+}
+
+/*End tool tip*/
+
+#s-name {
+    color: #2f3640;
+    font-size: 25px;
+    margin-top: 50px;
+    margin-left: 5%;
+    width: 90%;
+}
+
+.d-txt {
+    color: #2f3640;
+    font-size: 14px;
+    margin-left: 5%;
+    width: 90%;
+}
+
+#destiny {
+    margin-left: 5%;
+    width: 90%;
+    margin-bottom: 5px;
+}
+
+.d-pic {
+    background-color: white;
+    width: 90%;
+    height: 35px;
+    border-radius: 2px;
+    margin-left: 5%;
+    padding-top: 3px;
+    box-shadow: 0px 0px 1px 1px white;
+    margin-bottom: 5px;
+}
+
+.d-p {
+    font-size: 20px;
+    color: #2f3640;
+    margin-left: 5px;
+
+}
+
+#datepick1, #datepick2,#datepick3,#datepick4 {
+    width: 150px;
+    border: 0px;
+
+}
+
+#filter-main {
+    width: 100%;
+    height: auto;
+    border: 1px solid gray;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+#filter-main-name {
+    width: 100%;
+    height: auto;
+    font-weight: bold;
+    font-size: 18px;
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+#filter-main-name:hover {
+    cursor: pointer;
+}
+
+#star-rating-filter, #quiqe-filter, #fun-thinks-filter, #reception-filter, #Beach-filter, #property-filter, #review-rating-filter, #facility-filter, #room-facility-filter, #district-filter {
+    width: 100%;
+    height: auto;
+}
+
+#star-rating-filter-inside, #quiq-filter-inside, #fun-thinks-filter-inside, #reception-filter-inside, #Beach-filter-inside, #property-filter-inside, #review-filter-inside, #facility-filter-inside, #room-facility-filter-inside, #district-filter-inside {
+    width: 100%;
+    height: auto;
+}
+
+#star-txt, #quiq-txt, #fun-thinks-txt, #reception-txt, #Beach-txt, #property-txt, #review-txt, #facility-txt, #room-facility-txt, #district-txt {
+    color: #38385E;
+    font-size: 14px;
+    padding-left: 20px;
+    font-weight: bold;;
+}
+
+#star-txt:hover, #quiq-txt, #fun-thinks-txt, #reception-txt, #Beach-txt, #property-txt, #review-txt, #facility-txt, #room-facility-txt, #district-txt {
+    cursor: pointer;
+}
+
+.show-all {
+
+    font-size: 12px;
+    color: #00a8ff;
+    width: 90%;
+    margin-left: 5%;
+    text-align: center;
+}
+
+.show-all i {
+    margin-left: 10px;
+}
+
+.show-all:hover {
+    cursor: pointer;
+    color: #192a56;
+}
+
+#hidden-funs {
+
+}
+
+.txt-count {
+    text-align-last: right;
+    width: 40px;
+    font-size: 12px;
+    color: gray;
+}
+
+.iname {
+    width: 170px;
+    font-size: 13px;
+    color: black;
+}
+
+/*check box*/
+
+code {
+    border: 2px solid gray;
+    border-radius: 4px;
+    padding: 0.5% 1%;
+    background: #f2f2f2;
+}
+
+.checkbox_1 {
+    display: inline-flex;
+    cursor: pointer;
+    padding: 0.5rem;
+    position: relative;
+}
+
+.checkbox_1 > span {
+    padding: 0 .25rem;
+}
+
+.checkbox_1 > input {
+    width: 21px;
+    height: 21px;
+
+    /* remove default browser styling */
+    -webkit-appearance: none;
+    -mox-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+
+    /* custom styling */
+    background-color: #f2f2f2;
+    border: 2px solid gray;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+
+    transition-duration: 0.3s;
+}
+
+.checkbox_1 > input:checked {
+    border: 3px solid #004466;
+    background-color: #5ac5c9;
+}
+
+/* style checkmark symbol */
+.checkbox_1 > input:checked + span::before {
+    color: #004466;
+    content: "\2713";
+    text-align: center;
+
+    display: block;
+    position: absolute;
+    left: .95rem;
+    top: .5rem;
+}
+
+.checkbox_1 > input:active {
+    border: 2px solid #5ac5c9;
+}
+
+.checkbox_1 > input:focus + label::before {
+    outline: #5d9dd5 solid 1px;
+    box-shadow: 0 0px 8px #5e9ed6;
+}
+
+/* need this so the check doesn't fly away */
+input[id="check_2"] + label {
+    position: relative;
+}
+
+input[id="check_2"] + label::before {
+    width: 20px;
+    height: 20px;
+
+    background: #f2f2f2;
+    border: 3px solid #5ac5c9;
+    border-radius: 4px;
+    content: "";
+
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+}
+
+input[id="check_2"]:checked + label::before {
+    background: #5ac5c9;
+    border: 3px solid #004466;
+}
+
+/* style checkmark symbol */
+input[id="check_2"]:checked + label::after {
+    width: 13px;
+    height: 6px;
+
+    content: "";
+    border-left: 2px solid #004466;
+    border-bottom: 2px solid #004466;
+
+    top: .4rem;
+    left: .4rem;
+    position: absolute;
+    transform: rotate(-45deg);
+}
+
+input[id="check_2"]:focus + label::before {
+    outline: #5d9dd5 solid 1px;
+    box-shadow: 0 0 8px #5e9ed6;
+}
+
+/* hide default checkbox */
+input[id="check_2"] {
+    width: 1px;
+    height: 1px;
+
+    overflow: hidden;
+    position: absolute;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+/*check box*/
+
+/*start rigt*/
+
+@media only screen and (max-width: 800px) {
+    .pics {
+        color: #192a56;
+        text-align: center;
+        border-right: none;
+        font-size: 13px;
+        padding-top: 3px;
+        border-bottom: 1px solid #0077CC;
+    }
+
+    .wrap {
+        width: 100%;
+        height: auto;
+        /*border: 1px solid #231418;*/
+        padding: 0px;
+    }
+
+
+
+}
+
+#fu {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    border: 1px solid #0077CC;
+    border-top: 5px solid #0077CC;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    margin-left: 3px;
+}
+
+.pics:hover{
+    background-color: #E9F0FA;
+}
+
+.pics {
+    color: #192a56;
+    text-align: center;
+    border-right: 1px solid #0077CC;
+    font-size: 13px;
+    padding-top: 2px;
+}
+
+.pics:hover {
+    cursor: pointer;
+}
+
+.pics:nth-last-child {
+    border: none;
+}
+
+#details {
+    width: 100%;
+    height: auto;
+}
+
+#prpertfound {
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/*details*/
+
+#right-main {
+    height: auto;
+}
+
+/*start content-init*/
+
+#content-init {
+    width: 100%;
+    height: auto;
+    border: 1px solid #3498db;
+    -webkit-box-shadow: 0px -1px 13px -1px rgba(52, 152, 219, 1);
+    -moz-box-shadow: 0px -1px 13px -1px rgba(52, 152, 219, 1);
+    box-shadow: 0px -1px 13px -1px rgba(52, 152, 219, 1);
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+#content-init:hover {
+    background-color: #E9F0FA;
+    cursor: pointer;
+}
+
+/*start img content*/
+
+#img-content {
+    height: auto;
+}
+
+#img {
+    width: 90%;
+    margin-left: 19px;
+    height: 200px;
+    margin-top: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+
+@media screen and (max-width: 900px) {
+    #img {
+        width: 50%;
+        margin-left: 19px;
+        height: 200px;
+        margin-top: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    .wrap {
+        width: 100%;
+        height: auto;
+        /*border: 1px solid #231418;*/
+        padding: 0px;
+    }
+
+}
+@media screen and (max-width: 500px) {
+    #img {
+        width: 90%;
+        margin-left: 19px;
+        height: 200px;
+        margin-top: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+
+    .wrap {
+        width: 100%;
+        height: auto;
+        /*border: 1px solid #231418;*/
+        padding: 0px;
+    }
+
+}
+
+
+#label1 {
+    height: 50px;
+    width: 160px;
+    background-image: url("Flag.png");
+    position: absolute;
+    margin-top: 30px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    text-align: center;
+    padding-top: 7px;
+    color: black;
+}
+
+#label2 {
+    height: 50px;
+    width: 160px;
+    background-image: url("FlagGreen.png");
+    position: absolute;
+    margin-top: 30px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    text-align: center;
+    padding-top: 7px;
+    color: black;
+}
+
+#btn-show-price {
+    width: 80%;
+    background-color: white;
+    border-radius: 2px;
+    height: 42px;
+    margin-top: 70px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,206,201,1);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,206,201,1);
+    box-shadow: 0px 0px 5px 0px rgba(0,206,201,1);
+
+}
+
+#content-init:hover #btn-show-price{
+    animation-name: shake;
+    animation-duration: 0.5s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease-in;
+    position: relative;
+}
+
+#content-init:hover #btn-show-price2{
+    animation-duration: 0.5s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease-in;
+    position: relative;
+}
+
+/*@keyframes shakeAnim {*/
+    /*0% {left: 0}*/
+    /*1% {left: -3px}*/
+    /*2% {left: 5px}*/
+    /*3% {left: -8px}*/
+    /*4% {left: 8px}*/
+    /*5% {left: -5px}*/
+    /*6% {left: 3px}*/
+    /*7% {left: 0}*/
+/*}*/
+
+/*@keyframes shake {*/
+    /*0% {left: 0}*/
+    /*1% {left: -5px}*/
+    /*2% {left: 8px}*/
+    /*3% {left: -10px}*/
+    /*4% {left: 8px}*/
+    /*5% {left: -3px}*/
+    /*6% {left: 5px}*/
+    /*7% {left: 0}*/
+/*}*/
+
+
+#btn-show-price1 {
+    width: 152px;
+    background-color: white;
+    border-radius: 2px;
+    border: 1px solid dimgrey;
+    height: 42px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    float: right;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,206,201,1);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,206,201,1);
+    box-shadow: 0px 0px 5px 0px rgba(0,206,201,1);
+
+}
+
+#address-txt {
+    color: #0652DD;
+    font-size: 11px;
+}
+
+#content-init {
+    margin-top: 20px;
+}
+
+.btn-sh:hover {
+    background-color: #003580;
+
+}
+
+.btn-sh {
+    width: 98%;
+    margin-left: 1%;
+    margin-top: 1px;
+    border-radius: 0px;
+}
+
+.btn-sh2:hover {
+    background-color: #003580;
+
+}
+
+.btn-sh2 {
+    width: 98%;
+    margin-left: 1%;
+    margin-top: 1px;
+    border-radius: 0px;
+}
+
+.btn-sh1:hover {
+    background-color: #003580;
+
+}
+
+.btn-sh1 {
+    width: 150px;
+    margin-top: 1px;
+    border-radius: 0px;
+}
+
+/*start img content*/
+
+/*sart content-side*/
+
+#content-side {
+    height: auto;
+}
+
+/*start left content*/
+
+#left-set {
+    height: auto;
+}
+
+#l-hotel-name {
+    color: #3498db;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#l-start {
+    color: #f39c12;
+    font-size: 13px;
+    font-weight: lighter;
+}
+
+#finger i {
+    background-color: #f39c12;
+    padding: 5px;
+    color: bisque;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: lighter;
+}
+
+#map-img {
+    font-size: 15px;
+    margin-right: 5px;
+}
+
+#address-txt a {
+    text-decoration: underline;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+#welcome-msg {
+    text-align: justify;
+    font-size: 12px;
+}
+
+#right-set {
+    height: auto;
+    text-align: center;
+    margin-top: 10px;
+
+}
+
+#type-fab {
+    color: navy;
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+#type-rew {
+    color: gray;
+    font-size: 13px;
+    font-weight: lighter;
+}
+
+#rate-txt {
+    width: 35px;
+    height: 35px;
+    background-color: #003580;
+    color: bisque;
+    margin-top: 3px;
+    margin-left: 10px;
+    text-align: center;
+    padding-top: 2px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    font-weight: bold;
+}
+
+#g-v-t {
+    background-color: #F07C00;
+    width: 150px;
+    text-align: center;
+    padding-bottom: 5px;
+    color: bisque;
+    border-radius: 5px;
+}
+
+#x {
+    width: 100%;
+    height: auto;
+    margin-top: 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#x:hover {
+    background-color: white;
+
+}
+
+#ab {
+    color: #2c3e50;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#ac {
+    color: #2ecc71;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#bb, #bd {
+    color: gray;
+    font-size: 13px;
+    text-align: center;
+}
+
+#bc {
+    color: gray;
+    font-size: 20px;
+    text-align: center;
+}
+
+#be {
+    color: #27ae60;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#btn-sho {
+    width: 98%;
+    margin-left: 1%;
+    margin-top: 1px;
+}
+
+#btn-show-price-2 {
+    width: 95%;
+    margin-left: 2.5%;
+    background-color: white;
+    border-radius: 2px;
+    border: 1px solid dimgrey;
+    height: 42px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+#btn-show-price2 {
+    width: 150px;
+    float: right;
+    background-color: white;
+    border-radius: 2px;
+    border: 1px solid dimgrey;
+    height: 42px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+#ishoteltype {
+    padding: 2px 2px 2px 2px;
+    background-color: darkgrey;
+    margin-right: 5px;
+    font-size: 13px;
+    border-radius: 5px;
+    color: white;
+}
+
+#l-hotel-name:hover {
+    color: #FDBA02;
+}
+
+#ishoteltype:hover {
+    background-color: #FDBA02;
+}
+
+#posible-credit {
+    color: #32670F;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#posible-credit i {
+    font-size: 15px;
+    margin-right: 5px;
+}
+
+/*End left content*/
+
+/*End content-side*/
+
+/*End content-init*/
+
+/*start paginatio*/
+
+/*load detail wice*/
+
+/*load detail wice*/
+
+#extra-detail {
+    width: 95%;
+    height: auto;
+    background-color: white;
+    margin-left: 2.5%;
+    border-radius: 5px;
+}
+
+#roomtypes {
+    font-size: 12px;
+    color: #212121;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+#roomtypes i {
+    font-size: 13px;
+}
+
+#roomnameid {
+    font-size: 12px;
+    color: #212121;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+#roomcountset {
+    font-size: 13px;
+    color: #b71c1c;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+
+#pri {
+    font-weight: bold;
+    font-size: 20px;
+    color: #0AB21B;
+    float: right;
+    margin-right: 5px;
+}
+#brin{
+    font-weight: bold;
+    font-size: 12px;
+    color: #0AB21B;
+    float: right;
+    margin-right: 5px;
+}

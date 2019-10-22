@@ -1,0 +1,214 @@
+
+@media screen and (max-width: 600px) {
+    #social li:nth-child(7){
+        display: none;
+    }
+    #social li a:nth-child(6){
+        border: none;
+    }
+}
+
+
+@media screen and (max-width: 1300px) {
+
+
+    .nav{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #buttons{
+        display: none;
+    }
+}
+
+
+#icon-for-menu{
+    color: #130f40;
+    font-size: 40px;
+    float: left;
+    margin-top: 40px;
+    margin-left: 20px;
+    border: 1px solid #130f40;
+    border-radius: 5px;
+    padding: 0px 5px 0px 5px;
+    display: none;
+}
+
+#icon-for-menu:hover{
+  cursor: pointer;
+
+}
+
+
+#topbar{
+    background-color: #1A2B48;
+    width: 100%;
+    height: 50px;
+    padding-top: 10px;
+    padding-left: 50px;
+}
+#social{
+    list-style: none;
+}
+
+#social li{
+    display: inline;
+    margin-right: 15px;
+}
+
+#social li a i{
+    font-size: 15px;
+    color: #D1D4DA;
+}
+
+#second{
+    width: 100%;
+    height: 250px;
+    background-image: url("https://www.visit2srilanka.com/wp-content/uploads/2019/05/Fotolia_242475649_L-min.jpg");
+    background-size: 100% 250px;
+    -webkit-box-shadow: 0px 83px 44px -21px rgba(179,201,237,1);
+    -moz-box-shadow: 0px 83px 44px -21px rgba(179,201,237,1);
+    box-shadow: 0px 83px 44px -21px rgba(179,201,237,1);
+
+}
+#logoname{
+    margin-top: 15px;
+    margin-left: 20px;
+    float: left;
+}
+
+.nav li, .nav li a{
+    font-weight: bold;
+    text-decoration: none;
+
+}
+
+.nav{
+margin-top: 50px;
+    float: left;
+    margin-left: 90px;
+}
+
+
+
+#innav{
+    list-style: none;
+    padding: 0px;
+    margin-top: 10px;
+    background-color: white;
+    padding: 20px 20px 20px 20px;
+
+}
+
+#innav li{
+    margin-top: 10px;
+}
+
+#innav li a {
+    font-weight: lighter;
+}
+#absents:hover{
+    cursor: pointer;
+}
+
+#buttons{
+    background-color: #D3482E;
+    padding: 5px 10px 5px 10px;
+    float: right;
+    margin-top: 40px;
+    margin-right: 20px;
+    color: white;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+}
+
+
+/*start modal*/
+
+.modal {
+    border-radius: 10px;
+}
+
+.modal-body {
+    background-color: white;
+}
+
+.wrap {
+    padding: 15px;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+h4,
+modal-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.no-borders {
+    border: 0px;
+}
+
+.body-message {
+    font-size: 18px;
+}
+
+.centered {
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #2086c1;
+    border-color: transparent;
+    outline: none;
+    border-radius: 8px;
+    font-size: 15px;
+    padding: 10px 25px;
+}
+
+.btn-primary:hover {
+    background-color: #2086c1;
+    border-color: transparent;
+}
+
+.btn-primary:focus {
+    outline: none;
+}
+
+/*end modal*/
+
+
+.menu1{
+    list-style: none;
+}
+.menu1 li{
+    margin-top: 20px;
+}
+.menu1 li{
+    color: white;
+}
+
+.menu1 li a{
+    color: white;
+    text-decoration: none;
+}
+#fuck:hover{
+    cursor: pointer;
+}
+
+#fck2{
+    background-color: white;
+    padding: 20px 20px 20px 20px;
+    width: 250px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+#fck2 li a{
+    color: #0069D9;
+}

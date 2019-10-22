@@ -1,0 +1,33 @@
+
+
+
+#footer-wrap{
+    height: auto;
+    width: 100%;
+    margin: 0px;
+    background-image: url("https://www.visit2srilanka.com/wp-content/uploads/2019/05/footer.jpg?id=11687");
+    background-size: 100% 350px;
+    background-repeat: no-repeat;
+}
+
+#footericon{
+    list-style: none;
+    padding: 0px;
+}
+#footericon li {
+    display: inline;
+
+}
+
+#footericon li a i{
+    font-size: 25px;
+    margin-right: 20px;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #130f40;
+    background-color: #130f40;
+    color: white;
+    text-align: center;
+    border-radius: 100%;
+    padding-top: 4px;
+}
