@@ -32,16 +32,6 @@
         #rfac {
             list-style: none;
         }
-
-        #reseve2-wrap {
-            float: right;
-            width: 150px;
-            height: 40px;
-            background-color: white;
-            margin-top: 5px;
-            margin-bottom: 50px;
-        }
-
     </style>
 
 

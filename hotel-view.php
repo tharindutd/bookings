@@ -30,7 +30,7 @@ curl_setopt($ch4, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch4, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
 curl_setopt($ch4, CURLOPT_USERPWD, "$username:$password");
 $response2 = curl_exec($ch4);
-curl_close($ch);
+curl_close($ch4);
 $arr = json_decode($response2, true);
 
 $ch5 = curl_init();
@@ -58,16 +58,6 @@ $arr5 = json_decode($response5, true);
     <link type="text/css" rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
           integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-<!--    <script-->
-<!--            src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"-->
-<!--            integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk="-->
-<!--            crossorigin="anonymous"></script>-->
-
-
-    <!--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
-    <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>-->
-    <!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->
-
 
     <title>VISIT 2 SRI LANKA | Hotel-View</title>
 
@@ -152,14 +142,9 @@ require 'modal.php';
             <!--start reseve btn1-->
 
             <div id="reseve1">
-                <!--                <div id="reseve1-wrap">-->
-                <!--                    <div id="reseve1-btn">-->
-                <!--                        Reserve-->
-                <!--                    </div>-->
-                <!--                </div>-->
                 <div style=" width: 90%; margin-left: 5%; height: 40px; -webkit-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75); -moz-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75); box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75);">
-                    <input id="reserve1" type="button" value="Reserve" class="btn btn-primary"
-                           style="border-radius: 0px; width: 99%; margin-left: 0.5%; margin-top: 1px;"></div>
+                    <input id="reserve1" type="button" value="Reserve" class="btn btn-primary" style="border-radius: 0px; width: 99%; margin-left: 0.5%; margin-top: 1px;">
+                </div>
             </div>
 
             <!--End research-btn1seve btn1-->
@@ -293,7 +278,7 @@ require 'modal.php';
 
             <!--start top bar filter-->
 
-            <div id="top-bar-filter" class="row" style="margin: auto;">
+            <div id="top-bar-filter" class="row">
                 <div id="info-price" class="col-sm-12 col-xs-12 col-lg-3">
                     <a href="#rwd-table">Info & Price</a>
                 </div>
@@ -323,29 +308,24 @@ require 'modal.php';
                     <p id="hotel-name"></p>
                     <p id="star-set"></p>
                     <p id="fit"><i class="fas fa-hand-point-right"></i></p>
+
+                    <div id="beach-reserve">
+                        <!--start beach front-->
+                        <div id="beach-front">
+
+                        </div>
+                        <!--End beach front-->
+                    </div>
                 </div>
 
                 <!--End name-star-->
 
                 <!--start beach-reserve-->
-
-                <div id="beach-reserve" class="col-sm-12 col-xs-12 col-lg-6">
-
-                    <!--start beach front-->
-
-                    <div id="beach-front">
-
-                    </div>
-
-
+                <div class="col-sm-12 col-xs-12 col-lg-6"">                    
                     <div id="reseve2-wrap">
-                        <div style="width: 100%; height: 40px; background-color: white; -webkit-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75); -moz-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75); box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75);">
-                            <input type="button" class="btn btn-primary ok" value="Reserve"
-                                   style="border-radius: 0px; width: 100%; margin-top: 1px;"></div>
+                        <div style="width: 100%; height: 40px; -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.75); -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.75); box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.75);">
+                            <input type="button" class="btn btn-primary ok" value="Reserve" style="border-radius: 0px; width: 100%; margin-top: 1px; border: 2px solid #fff;"></div>
                     </div>
-
-
-                    <!--End beach front-->
                 </div>
 
                 <!--End beach-reserve-->
@@ -356,9 +336,10 @@ require 'modal.php';
 
             <!--start address-->
 
-            <p id="address-txt">
-            </p>
-
+            <div>                
+                <p id="address-txt"></p>
+                <p id="map-location"> </p>
+            </div>
             <!--End address-->
 
 
@@ -496,33 +477,18 @@ require 'modal.php';
 
                 <div class="row" id="" style="margin: auto;">
                     <div class="col-lg-4 col-sm-12 col-xs-12">
-                        <!--                        <label for="check-in">Check-In</label>-->
-                        <!--                        <input type="date" name="dateofbirth" id="check-in">-->
-                        <spann class="d-txt" style="font-weight: bold;">Check-in date</spann>
+                        <span class="d-txt" style="font-weight: bold;">Check-in date</span>
 
                         <div class="d-pic">
-                            <p><span><i class="fas fa-calendar-alt d-p"></i></span> <input id="datepick3"
-                                                                                           class="checkin2"
-                                                                                           placeholder=""
-                                                                                           type="date">
-                            </p>
+                            <p><span><i class="fas fa-calendar-alt d-p"></i></span> <input id="datepick3" class="checkin2" placeholder="" type="date"></p>
                         </div>
 
                     </div>
                     <div class="col-lg-4 col-sm-12 col-xs-12">
-                        <!--                        <label for="check-out">Check-Out</label>-->
-                        <!--                        <input type="date" name="dateofbirth" id="check-out">-->
-
-                        <spann class="d-txt" style="font-weight: bold;">Check-Out date</spann>
-
+                        <span class="d-txt" style="font-weight: bold;">Check-Out date</span>
                         <div class="d-pic">
-                            <p><span><i class="fas fa-calendar-alt d-p"></i></span> <input id="datepick4"
-                                                                                           class="checkout2"
-                                                                                           placeholder=""
-                                                                                           type="date">
-                            </p>
+                            <p><span><i class="fas fa-calendar-alt d-p"></i></span> <input id="datepick4" class="checkout2" placeholder="" type="date"></p>
                         </div>
-
                     </div>
 
                     <div class="col-lg-4 col-sm-12 col-xs-12">
@@ -611,30 +577,16 @@ require 'modal.php';
             <!--start an inside-->
 
             <hr>
-
-            <!--start facilit-->
-
             <div class="row" style="margin: auto;" id="f">
                 <div id="one-set" class="col-md-8 col-xs-12 col-sm-12">
                     <p><span style="color: #333333; font-size: 20px;" id="tag"></span><span id="wow"></span>
                     </p>
                 </div>
                 <div id="two-set" class="col-md-4 col-xs-12 col-sm-12">
-                    <!--                    <div id="reseve5-wrap">-->
-                    <!--                        <div id="reseve5-btn">-->
-                    <!--                            Reserve-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-
-
                     <div id="reseve2-wrap">
-                        <div style="width: 100%; height: 40px; background-color: white; -webkit-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75); -moz-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75); box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75);">
-                            <input type="button" class="btn btn-primary ok" value="Reserve"
-                                   style="border-radius: 0px; width: 100%; margin-top: 1px;"></div>
+                        <div style="width: 100%; height: 40px; -webkit-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75); -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.75); box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75);">
+                            <input type="button" class="btn btn-primary ok" value="Reserve" style="border-radius: 0px; width: 100%; margin-top: 1px; border: 2px solid #fff;"></div>
                     </div>
-
-                    <!--                    <input type="button" value="Reserve" id="reseve3" class="btn btn-primary"-->
-                    <!--                           style="border-radius: 0px;">-->
                 </div>
             </div>
 
@@ -794,20 +746,6 @@ require 'modal.php';
                     <p id="cout" style="font-size: 15px; color: #192a56; margin-top: 20px;"></p>
                 </div>
             </div>
-
-            <!--            <div class="row" id="one-c" style="margin: auto; margin-top: 10px; margin-bottom: 10px;">-->
-            <!--                <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12"-->
-            <!--                     style="color: #333333; font-size: 15px; padding-top: 20px;">-->
-            <!--                    <i class="fas fa-exclamation-circle" style="margin-right: 10px;"></i><span style="font-size: 13px;">Cancellation/-->
-            <!--                    prepayment</span>-->
-            <!--                </div>-->
-            <!--<!--                <div class="col-lg-9 col-md-9 col-sm-7 col-xs-12" style="padding: 10px 20px 10px 20px">-->
-            <!--<!--                    <p style="font-size: 13px;">Cancellation and prepayment policies vary according to accommodation-->
-            <!--<!--                        type. Please enter the-->
-            <!--<!--                        dates of your stay and check the conditions of your required room. </p>-->
-            <!--<!--                </div>-->
-            <!--            </div>-->
-
             <div class="row" id="one-d" style="margin: auto; margin-top: 10px; margin-bottom: 10px;">
                 <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12"
                      style="color: #333333; font-size: 15px; padding-top: 10px;">
@@ -922,6 +860,7 @@ require 'footer.php';
 
         var hoteltypeurl = "https://distribution-xml.booking.com/2.4/json/hotelTypes?languages=en";
         var hotelid = js_data['result'][0]['hotel_data']['hotel_type_id'];
+        var rating = js_data['result'][0]['hotel_data']['class'];
         var hoteltypename = "";
         $.ajax({
             type: 'GET',
@@ -941,6 +880,16 @@ require 'footer.php';
                 }
             }
         });
+
+        if (rating > 0) {
+            var star = "";
+            for (var ab = 0; ab < rating; ab++) {
+                star = star + '<i class="fas fa-star"></i>';
+            }
+
+            $("#star-set").html(star);
+
+        }
 
         $('#hotel-name').html(js_data['result'][0]['hotel_data']['name']);
 
@@ -997,8 +946,12 @@ require 'footer.php';
 
         var address = js_data['result'][0]['hotel_data']['address'];
         var city = js_data['result'][0]['hotel_data']['city'];
+        var latitude = js_data['result'][0]['hotel_data']['location']['latitude'];
+        var longitude = js_data['result'][0]['hotel_data']['location']['longitude'];
 
         $('#address-txt').append('<i class="fas fa-map-marker-alt" style="margin-right: 5px;"></i>' + '' + address + ' ,' + city + '');
+        
+        $('#map-location').append("<a href='https://google.com/maps/?q="+latitude+","+longitude+"' target='_blank'>Good location – show map</a>");
 
 
         // start a
@@ -1754,8 +1707,12 @@ require 'footer.php';
         // });
 
 
-        $('#guest-review').html('Guest Reviews(' + js_data['result'][0]['hotel_data']['number_of_reviews'] + ')');
+        var guest_reviews = 0;
+        if (js_data['result'][0]['hotel_data']['number_of_reviews'] != undefined) {
+            guest_reviews = js_data['result'][0]['hotel_data']['number_of_reviews'];
+        }
 
+        $('#guest-review').html('Guest Reviews(' + guest_reviews + ')');
 
     }
 

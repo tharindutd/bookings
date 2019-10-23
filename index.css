@@ -683,9 +683,13 @@ input[id="check_2"] {
 
 }
 
-#address-txt {
-    color: #0652DD;
+#address-txt, #map-location {
     font-size: 11px;
+    display:inline;
+}
+
+#map-location {
+    text-decoration: underline;
 }
 
 #content-init {

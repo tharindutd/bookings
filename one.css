@@ -158,6 +158,15 @@
 /*start hotel type name aria*/
 
 #hotel-type-txt {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 18px;
+    vertical-align: middle;
+    padding: 0 4px;
+    border-radius: 3px;
+    background: #aeaeae;
+    color: #fff;
     background-color: #AEAEAE;
     color: white;
     width: auto;
@@ -166,7 +175,12 @@
     margin-top: 8px;
     border-radius: 5px;
     font-size: 13px;
-
+}
+#beach-reserve {
+    clear: both;
+    display: inline-block;
+    margin-left: 10px;
+     font-size: 10px; 
 }
 
 #hotel-name {
@@ -178,20 +192,29 @@
 
 #star-set {
     color: #FEBA02;
-    font-size: 12px;
+    font-size: 9px;
     margin-top: 13px;
     margin-left: 10px;
     float: left;
+}
+#top-bar-filter {
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+#name-star {
+    padding:0px;
 }
 
 #fit {
     background-color: #FEBA02;
     color: white;
+    font-size: 9px;
     width: auto;
     float: left;
     padding: 3px 5px 3px 5px;
     margin-left: 5px;
-    margin-top: 7px;
+    margin-top: 10px;
     border-radius: 5px;
 }
 
@@ -200,8 +223,6 @@
 /*start hotel top button aria right*/
 
 #beach-front {
-    float: left;
-    margin-left: 100px;
     height: 20px;
     margin-top: 10px;
 }
@@ -209,35 +230,29 @@
 #beach-txt-img i {
     float: left;
     margin-right: 5px;
-    font-size: 20px;
     color: #00a8ff;
+    margin-top: 5px;
 }
 
 #beach-txt-img p {
     float: left;
     background-color: #E9F0FA;
     padding: 2px 5px 2px 5px;
-    font-size: 13px;
     border-radius: 5px;
     color: #00a8ff;
 }
 
+#top-bar-filter {
+    margin:auto;
+    margin-bottom:10px;
+}
 #reseve2-wrap {
     float: right;
-    width: 150px;
+    width: 100px;
     height: 40px;
-    background-color: white;
     margin-top: 5px;
+    border: 2px solid #fff;
 }
-
-#reseve2-wrap {
-    float: right;
-    width: 150px;
-    height: 40px;
-    background-color: white;
-    margin-top: 5px;
-}
-
 #reseve2-btn {
     width: 99%;
     height: 36px;

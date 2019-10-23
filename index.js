@@ -785,51 +785,45 @@ function loadspecdata(data) {
 
 function forindiv(event) {
 
-    console.log('ok');
-
     var checkin1 = $('#datepick1').val();
     var checkout1 = $('#datepick2').val();
     var checkin2 = $('.dp1').val();
     var checkout2 = $('.dp2').val();
 
-    var vchild;
-    var vroom;
-    var vadult;
-    var vwhere;
     var varfrom;
     var varto;
 
+    var vwhere = $('.destiny1').val();
+    var vchild = $('.child1').val();
+    var vroom = $('.room1').val();
+    var vadult = $('.adult1').val();
 
-    if (checkin1 == "" || checkout1 == "" || checkin2 == "" || checkout2 == "") {
-        alert('pleace enter a date');
-    } else {
+    if (vwhere == undefined) {
+        vwhere = $('.destiny2').val();
+    }
 
-        if (checkin1 != "" && checkout1 != "") {
+    if (vroom == undefined) {
+        vroom = $('.room2').val();
+    }
 
-            vwhere = $('.destiny1').val();
-            vchild = $('.child1').val();
-            vroom = $('.room1').val();
-            vadult = $('.adult1').val();
+    if (vadult == undefined) {
+        vadult = $('.adult2').val();
+    }
 
-            varfrom = checkin1;
-            varto = checkout1;
-            var a = varfrom.split("/");
-            if (a.length > 1) {
-                varfrom = a[2] + '-' + a[0] + '-' + a[1];
-                var a = varto.split("/");
-                varto = a[2] + '-' + a[0] + '-' + a[1];
-            }
+    if (checkin1 != "" && checkout1 != "") {
+        varfrom = checkin1;
+        varto = checkout1;
+        var a = varfrom.split("/");
+        if (a.length > 1) {
+            varfrom = a[2] + '-' + a[0] + '-' + a[1];
+            var a = varto.split("/");
+            varto = a[2] + '-' + a[0] + '-' + a[1];
+        }
 
-            console.log('A' + vwhere, vchild, vroom, vadult, varfrom, varto);
+        if (vchild == undefined) {
+            vchild = $('.child2').val();
 
-            if (vwhere == undefined) {
-                vwhere = $('.destiny2').val();
-
-
-            }
-            if (vchild == undefined) {
-                vchild = $('.child2').val();
-
+            if (checkin2 != undefined && checkout2 != undefined) {
                 varfrom = checkin2;
                 varto = checkout2;
                 var a = varfrom.split("/");
@@ -838,25 +832,13 @@ function forindiv(event) {
                     var a = varto.split("/");
                     varto = a[2] + '-' + a[0] + '-' + a[1];
                 }
-
-            }
-            if (vroom == undefined) {
-                vroom = $('.room2').val();
-            }
-            if (vadult == undefined) {
-                vadult = $('.adult2').val();
             }
 
-
-            console.log('B' + vwhere, vchild, vroom, vadult, varfrom, varto);
         }
-
-
-        var theClass = $(event).attr('class');
-        console.log(theClass);
-        window.location.assign('http://visit2srilanka.com/hotel-view.php?hotelid=' + theClass + '&from=' + varfrom + '&to=' + varto + '&child=' + vchild + '&adult=' + vadult + '&where=' + vwhere + '&room=' + vroom + '&status=false');
-
     }
+
+    var theClass = $(event).attr('class');
+    window.location.assign('http://visit2srilanka.com/hotel-view.php?hotelid=' + theClass + '&from=' + varfrom + '&to=' + varto + '&child=' + vchild + '&adult=' + vadult + '&where=' + vwhere + '&room=' + vroom + '&status=false');
 }
 
 
