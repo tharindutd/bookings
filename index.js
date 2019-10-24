@@ -1722,6 +1722,107 @@ function loadhoteltypewice(val) {
 }
 
 
+function lowestprice(destination) {
+
+    cityid = 0;
+    destinationtype = "";
+
+    for (var x = 0; x < cityarray.length; x++) {
+        for (var y = 0; y < cityarray[x]['result'].length; y++) {
+
+            if (cityarray[x]['result'][y]['name'] === destination) {
+                destinationtype = "city_ids";
+                cityid = cityarray[x]['result'][y]['city_id'];
+                break;
+            }
+        }
+    }
+
+    var checkin = $('#datepick1').val();
+    var checkout = $('#datepick2').val();
+
+    if (checkin == '' || checkout == '') {    
+        var d = new Date();
+        var month = d.getMonth() + 1;
+        var day = d.getDate();
+        var checkin = d.getFullYear() + '-' + (month < 10 ? '0' : '') + month + '-' + (day < 10 ? '0' : '') + day;
+
+        var tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        var month = tomorrow.getMonth() + 1;
+        var day = tomorrow.getDate();
+        var checkout = tomorrow.getFullYear() + '-' + (month < 10 ? '0' : '') + month + '-' + (day < 10 ? '0' : '') + day;
+    } else {
+        if (typeof checkin != 'undefined') {
+            var a = checkin.split("/");
+            if (a.length > 1) {
+                checkin = a[2] + '-' + a[0] + '-' + a[1];
+            }
+        }
+
+        if (typeof checkout != 'undefined') {
+            var a = checkout.split("/");
+            if (a.length > 1) {
+                checkout = a[2] + '-' + a[0] + '-' + a[1];
+            }
+        }
+    }
+
+    $('#details').empty();
+
+    $.ajax({
+        type: 'GET',
+        url: 'https://distribution-xml.booking.com/2.5/json/hotelAvailability?checkin='+checkin+'&checkout='+checkout+'&city_ids='+cityid+'&room1=A,A&extras=room_details,hotel_details',
+        dataType: 'json',
+        async: false,
+        crossDomain: true,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Authorization': 'Basic ' + btoa(username + ':' + password)
+        },
+        success: function (data) {
+            // console.log(data);
+            $('#prpertfound').html('' + destinationsample + ': ' + data['result'].length + ' properties found ');
+
+            var res = [];
+            $.each(data['result'], function(index, value){
+                var price = value['price'];
+                res[index] = price;
+            });
+
+            var sortedArr = res.sort(function(a, b) { 
+                return a < b ? -1 : (a > b ? 1 : 0);
+            });
+
+            // var result = [];
+
+            // $.each(sortedArr, function(index, price){
+
+            //     $.each(data['result'], function(i, v) {
+
+            //         if (typeof v['price'] != 'undefined' && price == v['price']) {
+            //             result.push(v);
+            //             data['result'].splice(i, 1);                        
+            //         }
+            //     });
+            // });
+
+            // data['result'] = result;
+
+            if (data['result'].length > 0) {
+                loadpagination(data);
+                // loadAll(data);
+
+            } else {
+                // $('#loaddiv').hide();
+                // $('.wrap').show();
+            }
+
+        }
+    });
+}
+
+
 // top filters
 
 $('.A').click(function () {
@@ -1735,7 +1836,8 @@ $('.A').click(function () {
 $('.B').click(function () {
 
     $('#details').empty();
-    loadHotelsuperbvice(7);
+    // loadHotelsuperbvice(7);
+    lowestprice($('.destiny1').val());
 });
 
 
