@@ -149,6 +149,29 @@ require 'modal.php';
 
             <!--End research-btn1seve btn1-->
 
+            <div class="bpg_holder_light_block">
+                <div id="rate_guarantee" class="">
+                <i class="
+                bpg_logo
+                "></i>
+                <a href="javascript:void(0);" data-toggle="popover" data-container="body" data-placement="bottom" data-popover-no-arrow="" data-popover-content="#bpg_desktop_badge" tabindex="0" class=" 
+                open-bpg-in-overlay-instead
+                pp_bpg_tooltip_holder" aria-describedby="current-popover">We Price Match
+                </a>
+                    <div id="bpg_desktop_badge" class="bui-panel bui-u-hidden">
+                            <div class="pp-bpg-tooltip--header">
+                                We Price Match
+                            </div>
+                            <div class="pp-bpg-tooltip--image"></div>
+                            <div class="pp-bpg-tooltip--text>"
+                                    Low rates •
+                                <span class="&quot;no_booking_fees_fr_tooltip&quot;">No booking fees</span> •
+                                    Find something cheaper? We'll refund the difference!
+                            </div>
+                    </div>
+                </div>
+            </div>
+
             <!--start search box-->
 
             <div id="main-search">
@@ -233,9 +256,7 @@ require 'modal.php';
 
             <!--start Map box-->
 
-            <!--            <div id="map-box">-->
-            <!---->
-            <!--            </div>-->
+            <div id="map-box"></div>
 
             <!--End Map box-->
 
@@ -324,7 +345,15 @@ require 'modal.php';
                 <div class="col-sm-12 col-xs-12 col-lg-6"">                    
                     <div id="reseve2-wrap">
                         <div style="width: 100%; height: 40px; -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.75); -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.75); box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.75);">
-                            <input type="button" class="btn btn-primary ok" value="Reserve" style="border-radius: 0px; width: 100%; margin-top: 1px; border: 2px solid #fff;"></div>
+                            <input type="button" class="btn btn-primary ok" value="Reserve" style="border-radius: 0px; width: 100%; margin-top: 1px; border: 2px solid #fff;">
+                            <div id="rate_guarantee" class="">
+                                <i class="bpg_logo"></i>
+                                <a href="javascript:void(0);" data-toggle="popover" data-container="body" data-placement="bottom" data-popover-no-arrow="" data-popover-content="#bpg_desktop_badge" tabindex="0" class=" 
+                                open-bpg-in-overlay-instead
+                                pp_bpg_tooltip_holder" aria-describedby="current-popover">We Price Match
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -852,6 +881,17 @@ require 'footer.php';
 
 
     console.log(js_data['result']);
+
+    $(function () {
+      $("[data-toggle=popover]").popover({
+        html : true,
+        trigger: 'hover',
+        content: function() {
+            var content = $(this).attr("data-popover-content");
+            return $(content).html();
+        }
+    });
+    })
 
     // start load top bar detail
 
@@ -1693,18 +1733,18 @@ require 'footer.php';
 
         // load map
 
-        // var myLatlng = new google.maps.LatLng(js_data['result'][0]['hotel_data']['location']['latitude'],js_data['result'][0]['hotel_data']['location']['longitude']);
-        // var myOptions = {
-        //     zoom: 4,
-        //     center: myLatlng,
-        //     mapTypeId: google.maps.MapTypeId.ROADMAP
-        // }
-        // map = new google.maps.Map(document.getElementById("map-box"), myOptions);
-        // var marker = new google.maps.Marker({
-        //     position: myLatlng,
-        //     map: map,
-        //     title:"Fast marker"
-        // });
+        var myLatlng = new google.maps.LatLng(js_data['result'][0]['hotel_data']['location']['latitude'],js_data['result'][0]['hotel_data']['location']['longitude']);
+        var myOptions = {
+            zoom: 4,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        map = new google.maps.Map(document.getElementById("map-box"), myOptions);
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            title:"Fast marker"
+        });
 
 
         var guest_reviews = 0;
@@ -1958,6 +1998,9 @@ require 'footer.php';
 
 
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=false&callback=initialize" ></script>
 
 </body>
 </html>
