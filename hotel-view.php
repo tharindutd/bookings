@@ -324,7 +324,7 @@ require 'modal.php';
 
                 <!--start name-star-->
 
-                <div id="name-star" class="col-sm-12 col-xs-12 col-lg-6">
+                <div id="name-star" class="col-sm-12 col-xs-12 col-lg-9">
                     <p id="hotel-type-txt"></p>
                     <p id="hotel-name"></p>
                     <p id="star-set"></p>
@@ -342,7 +342,7 @@ require 'modal.php';
                 <!--End name-star-->
 
                 <!--start beach-reserve-->
-                <div class="col-sm-12 col-xs-12 col-lg-6"">                    
+                <div class="col-sm-12 col-xs-12 col-lg-3"">                    
                     <div id="reseve2-wrap">
                         <div style="width: 100%; height: 40px; -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.75); -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.75); box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.75);">
                             <input type="button" class="btn btn-primary ok" value="Reserve" style="border-radius: 0px; width: 100%; margin-top: 1px; border: 2px solid #fff;">
