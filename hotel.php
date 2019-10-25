@@ -854,20 +854,20 @@ require 'header.php';
             <!--start top search-->
 
             <div class="row" id="fu">
-                <div class="col-lg-2 col-md-2 col-xs-12 pics A" style="background-color: #0AB21B">
-                    Our Top Picks
+                <div class="col-lg-2 col-md-2 col-xs-12 pics A" style="background-color: #0AB21B; font-size: 10px;">
+                    OUR TOP PICKS
                 </div>
-                <div class="col-lg-2 col-xs-12  col-md-2  pics C">
-                    Show homes first
+                <div style="font-size: 10px;" class="col-lg-2 col-xs-12  col-md-2  pics C">
+                    SHOW HOMES FIRST
 <!--                    <i class="fas fa-sort-down" style="color: #d35400; font-size: 15px;"></i>-->
                 </div>
-                <div style="font-size: 12px;" class="col-lg-2 col-md-2  col-xs-12 pics B">
-                    GOOD-SUPERB
+                <div style="font-size: 10px;" class="col-lg-2 col-md-2  col-xs-12 pics B">
+                    PRICE (LOWEST FIRST)
                 </div>
-                <div class="col-lg-3  col-md-3  col-xs-12 pics D">
+                <div style="font-size: 10px;" class="col-lg-3  col-md-3  col-xs-12 pics D">
                     BEACH FRONT
                 </div>
-                <div class="col-lg-3  col-md-3  col-xs-12 pics E ">
+                <div style="font-size: 10px;" class="col-lg-3  col-md-3  col-xs-12 pics E ">
                     COLOMBO DISTRICT
                 </div>
             </div>
