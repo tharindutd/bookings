@@ -25,6 +25,9 @@
 
 <?php
 require 'header.php';
+
+$date = new \DateTime();
+$minDate = $date->format("Y-m-d");
 ?>
 
 
@@ -49,15 +52,13 @@ require 'header.php';
                 <spann class="d-txt">Check-in date</spann>
 
                 <div class="d-pic">
-                    <p><span><i class="fas fa-calendar-alt d-p a"></i></span> <input id="datepick1" type="date"
-                                                                                   placeholder=""></p>
+                    <p><span><i class="fas fa-calendar-alt d-p a"></i></span> <input id="datepick1" type="date" min='<?php print $minDate; ?>' placeholder=""></p>
                 </div>
 
 
                 <spann class="d-txt">Check-out date</spann>
                 <div class="d-pic">
-                    <p><span><i class="fas fa-calendar-alt d-p b"></i></span> <input id="datepick2" type="date"
-                                                                                   placeholder=""></p>
+                    <p><span><i class="fas fa-calendar-alt d-p b"></i></span> <input id="datepick2" type="date" min='<?php print $minDate; ?>' placeholder=""></p>
                 </div>
 
                 <select name="adult" id="adult" class="form-control adult1">
@@ -900,13 +901,6 @@ require 'footer.php'
 
 
     }
-
-
-
-
-
-
-
 
 </script>
 
