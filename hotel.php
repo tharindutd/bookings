@@ -18,6 +18,7 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
           integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <title>VISIT 2 SRI LANKA | HOTELS</title>
 </head>
 <body onload="loaddefault()">
@@ -35,7 +36,7 @@ require 'header.php';
 
 <!--start wrap-->
 
-<div class="wrap">
+<div class="container">
     <div id="main-row" class="row">
         <div id="left-side" class="col-xs-12 col-sm-12 col-md-12 col-xl-3">
             <div id="main-search">
@@ -49,15 +50,13 @@ require 'header.php';
                 <spann class="d-txt">Check-in date</spann>
 
                 <div class="d-pic">
-                    <p><span><i class="fas fa-calendar-alt d-p a"></i></span> <input id="datepick1" type="date"
-                                                                                   placeholder=""></p>
+                    <p><span><i class="fas fa-calendar-alt d-p a"></i></span> <input id="datepick1" type="hidden" placeholder=""><input id="span-datepick1" class="daterange" type="text" placeholder=""><span class="daterange" id="span-datepick1" style="width:100%"></span> </p>
                 </div>
 
 
                 <spann class="d-txt">Check-out date</spann>
                 <div class="d-pic">
-                    <p><span><i class="fas fa-calendar-alt d-p b"></i></span> <input id="datepick2" type="date"
-                                                                                   placeholder=""></p>
+                    <p><span><i class="fas fa-calendar-alt d-p b"></i></span> <input id="datepick2" type="hidden" placeholder=""><input id="span-datepick2" class="daterange" type="text" placeholder=""><span class="daterange" id="span-datepick2" style="width:100%""></span></p>
                 </div>
 
                 <select name="adult" id="adult" class="form-control adult1">
@@ -915,6 +914,22 @@ require 'footer.php'
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.min.js"></script>
 <script type="text/javascript">
 
+    $(function() {
+      $('.daterange').daterangepicker({
+        locale: {
+          format: 'MMMM D, YYYY'
+        },
+        autoApply:true,
+        autoUpdateInput:false,
+      }, function(start, end, label) {
+        $("#span-datepick1").val(start.format('MMMM D, YYYY'));
+        $("#span-datepick2").val(end.format('MMMM D, YYYY'));
+        $("#datepick1").val(start.format('M/D/YYYY'));
+        $("#datepick2").val(end.format('M/D/YYYY'));
+      });
+
+    });
+
     $(window).load(function() {
         // Animate loader off screen
         $(".se-pre-con").hide();
@@ -1078,16 +1093,26 @@ require 'footer.php'
 
         $('.se-pre-con').fadeOut();
 
+        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         var today = new Date();
+        var tomorrow = new Date(Date.now() + 24 * 60 * 60 * 1000);
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
         var yyyy = today.getFullYear();
 
-        today = mm + '/' + dd + '/' + yyyy;
+        var t_dd = String(tomorrow.getDate()).padStart(2, '0');
+        var t_mm = String(tomorrow.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var t_yyyy = tomorrow.getFullYear();
+        start = months[today.getMonth()] + ' ' + dd + ', ' + yyyy;
+        end = months[tomorrow.getMonth()] + ' ' + t_dd + ', ' + t_yyyy;
 
-        $('#datepick1').val(today);
+        today_s = mm + '/' + dd + '/' + yyyy;
+        tomorrow_s = t_mm + '/' + t_dd + '/' + t_yyyy;
 
-        $('#datepick2').val(today);
+        $('#datepick1').val(today_s);
+        $('#datepick2').val(tomorrow_s);
+        $("#span-datepick1").val(start);
+        $("#span-datepick2").val(end);
 
 
         loadHotelNameWice('Colombo');
@@ -1097,16 +1122,10 @@ require 'footer.php'
 
     }
 
-
-
-
-
-
-
-
 </script>
 
-
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script src="index.js" type="text/javascript"></script>
 </body>
 </html>
