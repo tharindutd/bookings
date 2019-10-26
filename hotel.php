@@ -197,18 +197,6 @@ require 'header.php';
                             </label>
 
                             <label class="checkbox_1">
-                                <input type="checkbox" id="mount"/>
-                                <span class="iname">Mount Lavinia</span>
-                                <span class="txt-count"></span>
-                            </label>
-
-                            <label class="checkbox_1">
-                                <input type="checkbox" id="beachfront"/>
-                                <span class="iname">Beachfront</span>
-                                <span class="txt-count"></span>
-                            </label>
-
-                            <label class="checkbox_1">
                                 <input type="checkbox" id="sup"/>
                                 <span class="iname">Superb: 9+</span>
                                 <span class="txt-count"></span>
@@ -665,183 +653,8 @@ require 'header.php';
 
                         </div>
                     </div>
-
-                    <div id="district-filter">
-                        <p id="district-txt">District <i
-                                    style="margin-left: 50px; font-size: 15px; color: blue; float: right; margin-right: 10px;"
-                                    class="fas fa-sort-down"></i></p>
-
-                        <div id="district-filter-inside">
-
-                            <label class="checkbox_1">
-                                <input type="checkbox" id="ColomboDistrict"/>
-                                <span class="iname">Colombo District</span>
-                                <span class="txt-count"></span>
-                            </label>
-
-                            <label class="checkbox_1">
-                                <input type="checkbox" id="BatticaloaDistrict"/>
-                                <span class="iname">Batticaloa District</span>
-                                <span class="txt-count"></span>
-                            </label>
-
-                            <label class="checkbox_1">
-                                <input type="checkbox" id="AmparaDistrict"/>
-                                <span class="iname">Ampara District</span>
-                                <span class="txt-count"></span>
-                            </label>
-
-                            <label class="checkbox_1">
-                                <input type="checkbox" id="JaffnaDistrict"/>
-                                <span class="iname">Jaffna District</span>
-                                <span class="txt-count"></span>
-                            </label>
-
-                            <label class="checkbox_1">
-                                <input type="checkbox" id="MullaitivuDistrict"/>
-                                <span class="iname">Mullaitivu District</span>
-                                <span class="txt-count"></span>
-                            </label>
-
-                            <label class="checkbox_1">
-                                <input type="checkbox" id="VavuniyaDistrict"/>
-                                <span class="iname">Vavuniya District</span>
-                                <span class="txt-count"></span>
-                            </label>
-
-                            <label class="checkbox_1">
-                                <input type="checkbox" id="PuttalamDistrict"/>
-                                <span class="iname">Puttalam District</span>
-                                <span class="txt-count"></span>
-                            </label>
-
-                            <label class="checkbox_1">
-                                <input type="checkbox" id="KurunegalaDistrict"/>
-                                <span class="iname">Kurunegala District</span>
-                                <span class="txt-count"></span>
-                            </label>
-
-                            <label class="checkbox_1">
-                                <input type="checkbox" id="GampahaDistrict"/>
-                                <span class="iname">Gampaha District</span>
-                                <span class="txt-count"></span>
-                            </label>
-
-
-                            <p class="show-all" id="district-funs">Show All <i class="fas fa-sort-down"></i></p>
-
-                            <div id="district-hidden-funs" class="collapse">
-
-                                <label class="checkbox_1">
-                                    <input type="checkbox"  id="KalutaraDistrict"/>
-                                    <span class="iname">Kalutara District</span>
-                                    <span class="txt-count"></span>
-                                </label>
-
-                                <label class="checkbox_1">
-                                    <input type="checkbox" id="AnuradhapuraDistrict"/>
-                                    <span class="iname">Anuradhapura District</span>
-                                    <span class="txt-count"></span>
-                                </label>
-
-                                <label class="checkbox_1">
-                                    <input type="checkbox" id="PolonnaruwaDistrict"/>
-                                    <span class="iname">Polonnaruwa District</span>
-                                    <span class="txt-count"></span>
-                                </label>
-
-                                <label class="checkbox_1">
-                                    <input type="checkbox" id="MataleDistrict"/>
-                                    <span class="iname">Matale District</span>
-                                    <span class="txt-count"></span>
-                                </label>
-                                <label class="checkbox_1">
-                                    <input type="checkbox" id="KandyDistrict"/>
-                                    <span class="iname">Kandy District</span>
-                                    <span class="txt-count"></span>
-                                </label>
-
-                                <label class="checkbox_1">
-                                    <input type="checkbox" id="NuwaraEliyaDistrict"/>
-                                    <span class="iname">Nuwara Eliya District</span>
-                                    <span class="txt-count"></span>
-                                </label>
-
-                                <label class="checkbox_1">
-                                    <input type="checkbox" id="KegalleDistrict"/>
-                                    <span class="iname">Kegalle District</span>
-                                    <span class="txt-count"></span>
-                                </label>
-
-                                <label class="checkbox_1">
-                                    <input type="checkbox" id="RatnapuraDistrict"/>
-                                    <span class="iname">Ratnapura District</span>
-                                    <span class="txt-count"></span>
-                                </label>
-
-                                <label class="checkbox_1">
-                                    <input type="checkbox" id="TrincomaleeDistrict"/>
-                                    <span class="iname">Trincomalee District</span>
-                                    <span class="txt-count"></span>
-                                </label>
-
-
-
-                                <label class="checkbox_1">
-                                    <input type="checkbox" id="KilinochchiDistrict"/>
-                                    <span class="iname">Kilinochchi District</span>
-                                    <span class="txt-count"></span>
-                                </label>
-
-                                <label class="checkbox_1">
-                                    <input type="checkbox" id="MannarDistrict"/>
-                                    <span class="iname">Mannar District</span>
-                                    <span class="txt-count"></span>
-                                </label>
-
-                                <label class="checkbox_1">
-                                    <input type="checkbox" id="BadullaDistrict"/>
-                                    <span class="iname">Badulla District</span>
-                                    <span class="txt-count"></span>
-                                </label>
-
-                                <label class="checkbox_1">
-                                    <input type="checkbox" id="MonaragalaDistrict"/>
-                                    <span class="iname">Monaragala District</span>
-                                    <span class="txt-count"></span>
-                                </label>
-
-                                <label class="checkbox_1">
-                                    <input type="checkbox" id="HambantotaDistrict"/>
-                                    <span class="iname">Hambantota District</span>
-                                    <span class="txt-count"></span>
-                                </label>
-
-                                <label class="checkbox_1">
-                                    <input type="checkbox" id="MataraDistrict"/>
-                                    <span class="iname">Matara District</span>
-                                    <span class="txt-count"></span>
-                                </label>
-
-                                <label class="checkbox_1">
-                                    <input type="checkbox" id="GalleDistrict"/>
-                                    <span class="iname">Galle District</span>
-                                    <span class="txt-count"></span>
-                                </label>
-
-
-                            </div>
-
-
-                        </div>
-                    </div>
                     <hr>
-<!--                    <div id="map-view">-->
-<!---->
-<!--                    </div>-->
-
                 </div>
-
             </div>
         </div>
 
@@ -854,25 +667,16 @@ require 'header.php';
             <!--start top search-->
 
             <div class="row" id="fu">
-                <div class="col-lg-2 col-md-2 col-xs-12 pics A" style="background-color: #0AB21B; font-size: 10px;">
+                <div class="col-lg-4 col-md-4 col-xs-12 pics A" style="background-color: #0AB21B; font-size: 10px;">
                     OUR TOP PICKS
                 </div>
-                <div style="font-size: 10px;" class="col-lg-2 col-xs-12  col-md-2  pics C">
+                <div style="font-size: 10px;" class="col-lg-4 col-xs-12  col-md-4  pics C">
                     SHOW HOMES FIRST
-<!--                    <i class="fas fa-sort-down" style="color: #d35400; font-size: 15px;"></i>-->
                 </div>
-                <div style="font-size: 10px;" class="col-lg-2 col-md-2  col-xs-12 pics B">
+                <div style="font-size: 10px;" class="col-lg-4 col-md-4  col-xs-12 pics B">
                     PRICE (LOWEST FIRST)
                 </div>
-                <div style="font-size: 10px;" class="col-lg-3  col-md-3  col-xs-12 pics D">
-                    BEACH FRONT
-                </div>
-                <div style="font-size: 10px;" class="col-lg-3  col-md-3  col-xs-12 pics E ">
-                    COLOMBO DISTRICT
-                </div>
             </div>
-
-
 
             <!--start top search-->
 
