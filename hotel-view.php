@@ -256,7 +256,7 @@ require 'modal.php';
 
             <!--start Map box-->
 
-            <div id="map-box"></div>
+            <!-- <div id="map-box"></div> -->
 
             <!--End Map box-->
 
@@ -274,7 +274,7 @@ require 'modal.php';
 
             <!--start review box-->
 
-            <div id="review-box" class="row" style="margin: 0px; padding: 0px; margin-top: 20px;">
+<!--             <div id="review-box" class="row" style="margin: 0px; padding: 0px; margin-top: 20px;">
                 <div id="review-score" class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
                     <p id="review-score-txt"></p>
                 </div>
@@ -283,7 +283,7 @@ require 'modal.php';
                     <span id="excellent-txt"></span><br>
                     <span id="review-txt"></span>
                 </div>
-            </div>
+            </div> -->
 
             <!--End review box-->
 
@@ -300,20 +300,16 @@ require 'modal.php';
             <!--start top bar filter-->
 
             <div id="top-bar-filter" class="row">
-                <div id="info-price" class="col-sm-12 col-xs-12 col-lg-3">
+                <div id="info-price" class="col-sm-12 col-xs-12 col-lg-4">
                     <a href="#rwd-table">Info & Price</a>
                 </div>
-                <div id="facility" class="col-sm-12 col-xs-12 col-lg-3">
+                <div id="facility" class="col-sm-12 col-xs-12 col-lg-4">
                     <a href="#f">Facilities</a>
                 </div>
-                <div id="house-rule" class="col-sm-12 col-xs-12 col-lg-3">
+                <div id="house-rule" class="col-sm-12 col-xs-12 col-lg-4">
                     <a href="#last">House Rules</a>
                 </div>
-                <div id="guest-review" class="col-sm-12 col-xs-12 col-lg-3">
-
-                </div>
             </div>
-
 
             <!--start top bar filter-->
 
@@ -346,13 +342,6 @@ require 'modal.php';
                     <div id="reseve2-wrap">
                         <div style="width: 100%; height: 40px; -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.75); -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.75); box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.75);">
                             <input type="button" class="btn btn-primary ok" value="Reserve" style="border-radius: 0px; width: 100%; margin-top: 1px; border: 2px solid #fff;">
-                            <div id="rate_guarantee" class="">
-                                <i class="bpg_logo"></i>
-                                <a href="javascript:void(0);" data-toggle="popover" data-container="body" data-placement="bottom" data-popover-no-arrow="" data-popover-content="#bpg_desktop_badge" tabindex="0" class=" 
-                                open-bpg-in-overlay-instead
-                                pp_bpg_tooltip_holder" aria-describedby="current-popover">We Price Match
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -365,9 +354,16 @@ require 'modal.php';
 
             <!--start address-->
 
-            <div>                
+            <div id="address-block">                
                 <p id="address-txt"></p>
                 <p id="map-location"> </p>
+                <div id="rate_guarantee" class="">
+                    <i class="bpg_logo"></i>
+                    <a href="javascript:void(0);" data-toggle="popover" data-container="body" data-placement="bottom" data-popover-no-arrow="" data-popover-content="#bpg_desktop_badge" tabindex="0" class=" 
+                    open-bpg-in-overlay-instead
+                    pp_bpg_tooltip_holder" aria-describedby="current-popover">We Price Match
+                    </a>
+                </div>
             </div>
             <!--End address-->
 
@@ -606,10 +602,9 @@ require 'modal.php';
             <!--start an inside-->
 
             <hr>
-            <div class="row" style="margin: auto;" id="f">
+            <div class="row" style="margin-bottom: 10px;" id="f">
                 <div id="one-set" class="col-md-8 col-xs-12 col-sm-12">
-                    <p><span style="color: #333333; font-size: 20px;" id="tag"></span><span id="wow"></span>
-                    </p>
+                    <p><span style="color: #333333; font-size: 20px;" id="tag"></span></p>
                 </div>
                 <div id="two-set" class="col-md-4 col-xs-12 col-sm-12">
                     <div id="reseve2-wrap">
@@ -1818,7 +1813,7 @@ require 'footer.php';
 
         console.log(js_data);
 
-        var forx5 = '  <table id="rwd-table"><thead><tr style="background-color: #4C76B2; color: white;"><th style="font-size: 14px; font-weight: bold; padding-right: 10px; text-align: center; border-right: 1px solid white;">Room Type</th><th style="font-size: 14px; font-weight: bold; text-align: center; border-right: 1px solid white;">Sleeps</th><th style="font-size: 14px; font-weight: bold; text-align: center; border-right: 1px solid white;">Today\'s Price</th><th style="font-size: 14px; font-weight: bold; text-align: center; border-right: 1px solid white;">Your Choice</th><th style="font-size: 14px; font-weight: bold; text-align: center; border-right: 1px solid white;"></th></tr></thead><tbody id="tbodytxt"></tbody></table>';
+        var forx5 = '<table id="rwd-table"><thead><tr style="background-color: #4C76B2; color: white;"><th style="font-size: 14px; font-weight: bold; padding-right: 10px; text-align: center; border-right: 1px solid white;">Room Type</th><th style="font-size: 14px; font-weight: bold; text-align: center; border-right: 1px solid white;">Sleeps</th><th style="font-size: 14px; font-weight: bold; text-align: center; border-right: 1px solid white;">Today\'s Price</th><th style="font-size: 14px; font-weight: bold; text-align: center; border-right: 1px solid white;">Your Choice</th><th style="font-size: 14px; font-weight: bold; text-align: center; border-right: 1px solid white;"></th></tr></thead><tbody id="tbodytxt"></tbody></table>';
         $('#x5').append(forx5);
 
 
@@ -1866,7 +1861,7 @@ require 'footer.php';
             //         // facili=facili+'<li>-'+js_data['result'][0]['room_data'][roomi]['room_facilities'][xample]['name']+'</li>';
             // }
 
-            $('#tbodytxt').append('<tr  id="okk" class="' + roomi + '" onclick="loadroomdatadetail(roomdatafrather,this)"><td><i class="fas fa-chevron-right" style="color:#d35400; font-size: 15px; margin-right: 10px; "></i>' + prname + '<br><ul id="facid">' + facili + '</ul></td><td id="sam">' + roomtypespan + '</td><td id="pricefor"  class="' + roomi + '">$&nbsp' + priceforroom + '</td><td id="yourchoice"  class="' + roomi + '">' + yourchoice + '</td></tr>');
+            $('#tbodytxt').append('<tr  id="okk" class="' + roomi + '" onclick="loadroomdatadetail(roomdatafrather,this)"><td id="room-type"><i class="fas fa-chevron-right" style="color:#d35400; font-size: 15px; margin-right: 10px; "></i>' + prname + '<br><ul id="facid">' + facili + '</ul></td><td id="sam">' + roomtypespan + '</td><td id="pricefor"  class="' + roomi + '">US$' + priceforroom + '</td><td id="yourchoice"  class="' + roomi + '">' + yourchoice + '</td></tr>');
 
 
         }
@@ -1875,7 +1870,7 @@ require 'footer.php';
     function loadwithoutDate(js_data) {
 
 
-        var forx5 = '<table id="rwd-table"><thead><tr style="background-color: #4C76B2; color: white;"><th style="font-size: 14px; font-weight: bold; padding-right: 10px; text-align: center; border-right: 1px solid white;">Sleeps</th><th style="font-size: 14px; font-weight: bold; text-align: center; border-right: 1px solid white;">Room Type</th><th></th></tr></thead><tbody id="tbodytxt"></tbody></table>';
+        var forx5 = '<table id="rwd-table"><thead><tr style="background-color: #4C76B2; color: white;"><th style="font-size: 14px; font-weight: bold; border-right: 1px solid white;">Room Type</th><th style="font-size: 14px; font-weight: bold; padding-right: 10px; text-align: center; border-right: 1px solid white;">Sleeps</th><th></th></tr></thead><tbody id="tbodytxt"></tbody></table>';
         $('#x5').append(forx5);
 
         console.log(js_data);
@@ -1895,7 +1890,7 @@ require 'footer.php';
             roomdatafrather = js_data['result'][0]['room_data'];
 
 
-            $('#tbodytxt').append('<tr><td id="okk" class="' + roomi + '" onclick="loadroomdata(roomdatafrather,this)">' + roomtypespan + '</td><td id="sam" class="' + roomi + '" onclick="loadroomdata(roomdatafrather,this)"><i class="fas fa-chevron-right" style="color:#d35400; font-size: 15px; margin-right: 10px; "></i>' + js_data['result'][0]['room_data'][roomi]['room_name'] + '</td><td><div style="width: 120px; height: 40px; background-color: white; -webkit-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75); -moz-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75); box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75);"><input type="button"  class="btn btn-primary" value="Reserve Room" onclick="call()" style="border-radius: 0px; width: 98%; margin-left: 1%; margin-top: 1px;"></div></td></tr>');
+            $('#tbodytxt').append('<tr><td id="sam" class="' + roomi + '" style="text-align:left;" onclick="loadroomdata(roomdatafrather,this)"><i class="fas fa-chevron-right" style="color:#d35400; font-size: 15px; margin-right: 10px; "></i>' + js_data['result'][0]['room_data'][roomi]['room_name'] + '</td><td style="text-align:center;" id="okk" class="' + roomi + '" onclick="loadroomdata(roomdatafrather,this)">' + roomtypespan + '</td><td style="text-align:center;"><div style="width: 120px; height: 40px; background-color: white; -webkit-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75); -moz-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75); box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75); margin:auto;"><input type="button"  class="btn btn-primary" value="Reserve Room" onclick="call()" style="border-radius: 0px; width: 98%; margin-left: 1%; margin-top: 1px;"></div></td></tr>');
         }
     }
 

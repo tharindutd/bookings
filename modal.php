@@ -59,11 +59,6 @@
                     <div class="row" style=" background-color: #E9F0FA;">
                         <div class="col-sm-12 col-xs-12 col-lg-12 col-md-12"
                              style=" height: 350px; background-color: #E9F0FA;">
-                            <div id="reseve2-wrap">
-                                <div style="width: 100%; height: 40px; background-color: white; -webkit-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75); -moz-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75); box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75);">
-                                    <input type="button" class="btn btn-primary ok" value="Reserve"
-                                           style="border-radius: 0px; width: 100%; margin-top: 1px;"></div>
-                            </div>
                             <div style="float: left;  height: 350px; width: 10%;">
 <!--                                <i class="fas fa-arrow-circle-left"-->
 <!--                                   style="color: #2b2b2b; font-size: 25px; margin-top: 100px;"></i>-->
@@ -82,111 +77,22 @@
                     <div style="height: auto; margin-top: 10px; padding-right: 5px;" class="row">
 
                         <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
-                            <img id="img-1" class="img-thumbnail" src="" alt=""  style="height: 80px; width: 100%;">
+                            <img id="img-1" class="img-thumbnail" src="" alt="" style="height: 80px; width: 100%;">
                         </div>
                         <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
-                            <img id="img-2" class="img-thumbnail" src="" alt=""  style="height: 80px; width: 100%;">
+                            <img id="img-2" class="img-thumbnail" src="" alt="" style="height: 80px; width: 100%;">
                         </div>
                         <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
-                            <img id="img-3" class="img-thumbnail" src="" alt=""  style="height: 80px; width: 100%;">
+                            <img id="img-3" class="img-thumbnail" src="" alt="" style="height: 80px; width: 100%;">
                         </div>
                         <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
-                            <img id="img-4" class="img-thumbnail" src="" alt=""  style="height: 80px; width: 100%;">
+                            <img id="img-4" class="img-thumbnail" src="" alt="" style="height: 80px; width: 100%;">
                         </div>
                     </div>
 
                     <div style="width: 100%; height: 1px; background-color: #0984e3;"></div>
 
-                    <div style="width: 100%; height: auto" id="detailsforroom">
-
-
-
-                    </div>
-
-                    <div id="filteraria-ok" style="width: 100%; height: auto; margin-top: 20px;">
-<!--                        <span>Free WiFi! </span><br>-->
-<!---->
-<!--                        <span style="font-weight: bold;font-size: 13px;">Parking</span><br>-->
-<!--                        <span>Free! Free private parking is available on site (reservation is not needed). </span>-->
-
-
-
-
-
-
-
-                        <div id="main-search">
-                            <span id="s-name">Search</span><br>
-
-                            <spann class="d-txt">Check-in date</spann>
-
-                            <div class="d-pic">
-                                <p><span><i class="fas fa-calendar-alt d-p"></i></span> <input id="datepick1" class="dpicfrom3" type="date"
-                                                                                               placeholder="check-in-date"></p>
-                            </div>
-
-
-                            <spann class="d-txt">Check-out date</spann>
-                            <div class="d-pic">
-                                <p><span><i class="fas fa-calendar-alt d-p"></i></span> <input id="datepick2" class="dpicto3" type="date"
-                                                                                               placeholder="check-out-date"></p>
-                            </div>
-
-                            <select name="adult" id="adult" class="form-control adult3">
-                                <?php
-                                for ($var1 = 1; $var1 <= 30; $var1++) {
-                                    ?>
-
-                                    <option value="<?php echo $var1 ?> ADULT"><?php echo $var1 ?> ADULT</option>
-
-                                <?php }
-                                ?>
-                            </select>
-
-                            <div id="ch">
-                                <select name="child" id="child" class="form-control child3">
-                                    <option value="0 CHILDREN">0 CHILDREN</option>
-                                    <?php
-                                    for ($var1 = 1; $var1 <= 15; $var1++) {
-                                        ?>
-
-                                        <option value="<?php echo $var1 ?> CHILDREN"><?php echo $var1 ?> CHILDREN</option>
-
-                                    <?php }
-                                    ?>
-                                </select>
-
-
-                                <select name="child" id="room" class="form-control room3">
-                                    <option value="1 ROOM">1 ROOM</option>
-                                    <?php
-                                    for ($var1 = 2; $var1 <= 30; $var1++) {
-                                        ?>
-
-                                        <option value="<?php echo $var1 ?> ROOM"><?php echo $var1 ?> ROOM</option>
-
-                                    <?php }
-                                    ?>
-                                </select>
-
-                            </div>
-
-                            <label class="ch-box">
-                                <input type="checkbox"/>
-                                <span class="iname"
-                                      data-title="If You Select This Position, We'ill Show YouPopular Business Travel Features Like Breakfast, Wi-fi And Free Parking"
-                                      style="font-size: 13px;">I'm travelling for work <i class="fas fa-question-circle"
-                                                                                          id="qu"></i></span>
-                            </label>
-
-                            <div>
-                                <p id="aa"><input type="button" id="search-btn" class="btn btn-primary" value="Serach"></p>
-                            </div>
-
-                        </div>
-                    </div>
-
-
+                    <div style="width: 100%; height: auto" id="detailsforroom"></div>
                 </div>
             </div>
 
