@@ -241,11 +241,16 @@ h1{
 }
 
 #datepick1, #datepick2,#datepick3,#datepick4 {
-    width: 150px;
     border: 0px;
-
 }
 
+#bpg_holder_light_block-id {
+    padding: 10px;
+}
+.bpg_holder_light_block div#rate_guarantee.rate_guarantee-class {
+    padding: 0px;
+    float: none;
+}
 #filter-main {
     width: 100%;
     height: auto;

@@ -1946,7 +1946,6 @@ $(document).ready(function () {
     });
 });
 
-
 var temp1 = 0;
 var temp2 = 0;
 

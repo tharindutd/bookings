@@ -149,8 +149,8 @@ require 'modal.php';
 
             <!--End research-btn1seve btn1-->
 
-            <div class="bpg_holder_light_block">
-                <div id="rate_guarantee" class="">
+            <div class="bpg_holder_light_block" id="bpg_holder_light_block-id">
+                <div id="rate_guarantee" class="rate_guarantee-class">
                 <i class="
                 bpg_logo
                 "></i>
@@ -163,7 +163,7 @@ require 'modal.php';
                                 We Price Match
                             </div>
                             <div class="pp-bpg-tooltip--image"></div>
-                            <div class="pp-bpg-tooltip--text>"
+                            <div class="pp-bpg-tooltip--text>
                                     Low rates •
                                 <span class="&quot;no_booking_fees_fr_tooltip&quot;">No booking fees</span> •
                                     Find something cheaper? We'll refund the difference!
