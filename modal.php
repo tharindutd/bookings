@@ -41,13 +41,13 @@
 <div class="modal fade bs-example-modal-new" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
      aria-hidden="true"  style=" background-color: #E9F0FA;">
 
-    <div class="modal-dialog"  style=" background-color: #E9F0FA;">
+    <div class="modal-dialog modal-lg"  style=" background-color: #E9F0FA;">
 
         <!-- Modal Content: begins -->
         <div class="modal-content" style=" height: auto; background-color: white">
 
             <!-- Modal Header -->
-            <div class="modal-header">
+            <div class="modal-header" style=" background-color: #E9F0FA;border-bottom: none;">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
                 <!--                <h4 class="modal-title" id="gridSystemModalLabel">Your Headings</h4>-->
@@ -56,6 +56,8 @@
             <!-- Modal Body -->
             <div class="modal-body" style=" background-color: #E9F0FA;">
                 <div class="body-message" style=" background-color: #E9F0FA;">
+                    <div class="row">
+                    <div class="col-sm-8">
                     <div class="row" style=" background-color: #E9F0FA;">
                         <div class="col-sm-12 col-xs-12 col-lg-12 col-md-12"
                              style=" height: 350px; background-color: #E9F0FA;">
@@ -90,16 +92,16 @@
                         </div>
                     </div>
 
-                    <div style="width: 100%; height: 1px; background-color: #0984e3;"></div>
+                </div>
+                    <div class="col-sm-4">
 
                     <div style="width: 100%; height: auto" id="detailsforroom"></div>
                 </div>
             </div>
-
-            <!-- Modal Footer -->
-            <div class="modal-footer">
-                <!--                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>-->
+                </div>
             </div>
+
+            
 
         </div>
         <!-- Modal Content: ends -->
