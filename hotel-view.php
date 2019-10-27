@@ -354,7 +354,7 @@ require 'modal.php';
 
             <!--start address-->
 
-            <div id="address-block">                
+            <div id="address-block" style="margin: 0;padding: 0">                 
                 <p id="address-txt"></p>
                 <p id="map-location"> </p>
                 <div id="rate_guarantee" class="">

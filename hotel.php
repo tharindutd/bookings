@@ -59,7 +59,7 @@ $minDate = $date->format("Y-m-d");
 
                 <spann class="d-txt">Check-out date</spann>
                 <div class="d-pic">
-                    <p><span><i class="fas fa-calendar-alt d-p b"></i></span> <input id="datepick2" type="hidden" min='<?php print $minDate; ?>' placeholder=""><input id="span-datepick2" disabled style="border: none;" class="daterange" type="text" placeholder=""><span class="daterange" id="span-datepick2" style="width:100%"></span></p>
+                    <p><span><i class="fas fa-calendar-alt d-p b"></i></span> <input id="datepick2" type="hidden" min='<?php print $minDate; ?>' placeholder=""><input id="span-datepick2"  style="border: none;background: none" class="daterange" type="text" placeholder=""><span class="daterange2" id="span-datepick2" style="width:100%"></span></p>
                 </div>
 
                 <select name="adult" id="adult" class="form-control adult1">
@@ -733,21 +733,37 @@ require 'footer.php'
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.min.js"></script>
 <script type="text/javascript">
 
-    $(function() {
-      $('.daterange').daterangepicker({
-        locale: {
-          format: 'MMMM D, YYYY'
-        },
-        autoApply:true,
-        autoUpdateInput:false,
-      }, function(start, end, label) {
-        $("#span-datepick1").val(start.format('MMMM D, YYYY'));
-        $("#span-datepick2").val(end.format('MMMM D, YYYY'));
-        $("#datepick1").val(start.format('M/D/YYYY'));
-        $("#datepick2").val(end.format('M/D/YYYY'));
-      });
+$(function() {
+     $('.daterange').daterangepicker({
+       locale: {
+         format: 'MMMM D, YYYY'
+       },
+       autoApply:true,
+       autoUpdateInput:false,
+     }, function(start, end, label) {
+       $("#span-datepick1").val(start.format('MMMM D, YYYY'));
+       $("#span-datepick2").val(end.format('MMMM D, YYYY'));
+       $("#datepick1").val(start.format('M/DD/YYYY'));
+       $("#datepick2").val(end.format('M/DD/YYYY'));
+     });
 
-    });
+   });
+
+   $(function() {
+     $('.daterange2').daterangepicker({
+       locale: {
+         format: 'MMMM D, YYYY'
+       },
+       autoApply:true,
+       autoUpdateInput:false,
+     }, function(start, end, label) {
+       $("#span-datepick1").val(start.format('MMMM D, YYYY'));
+       $("#span-datepick2").val(end.format('MMMM D, YYYY'));
+       $("#datepick1").val(start.format('M/DD/YYYY'));
+       $("#datepick2").val(end.format('M/DD/YYYY'));
+     });
+
+   });
 
     $(window).load(function() {
         // Animate loader off screen
