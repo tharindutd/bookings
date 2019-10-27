@@ -1516,7 +1516,7 @@ require 'footer.php';
 
 
 
-        $('#toprated').html('<i class="fas fa-map-marker-alt" style="color:#333333;padding-right: 10px;"></i>Top location: Highly  by recent review Score (' + js_data['result'][0]['hotel_data']['review_score'] + ')');
+        $('#toprated').html('<i class="fas fa-map-marker-alt" style="color:#333333;padding-right: 10px;"></i>Top location: Highly  by recent review Score');
 
 
         // create gallary
