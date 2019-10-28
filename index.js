@@ -69,6 +69,7 @@ var fourStar = [];
 var fiveStar = [];
 var noneStar = [];
 var allDataSet = [];
+var allDataArray = [];
 
 var username = "info@websrus.com.au";
 var password = "Mtbotntgbu@2017";
@@ -1489,6 +1490,33 @@ $(document).ready(function(){
         }
     }
 
+    var hoteltypes = [];
+    $.ajax({
+        type: 'GET',
+        url: 'https://distribution-xml.booking.com/2.4/json/hotelTypes?languages=en&rows=1000',
+        dataType: 'json',
+        async: false,
+        crossDomain: true,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Authorization': 'Basic ' + btoa(username + ':' + password)
+        },
+        success: function (data) {
+
+            if (data['result'].length > 0) {
+                $.each(data['result'], function(index, value) {
+                    var hotel_type_name = value['name'];
+                    var hotel_type_id = value['hotel_type_id'];
+
+                    var hotel_type = [];
+                    hotel_type['hotel_type_name'] = hotel_type_name;
+                    hotel_type['hotel_type_id'] = hotel_type_id;
+                    hoteltypes[hotel_type_id] = hotel_type;
+                });
+            }
+        }
+    });
+
     $.ajax({
         type: 'GET',
         url: 'https://distribution-xml.booking.com/2.4/json/hotels?city_ids=' + cityid + '&rows=1000&extras=hotel_info',
@@ -1502,6 +1530,15 @@ $(document).ready(function(){
             if (data['result'].length > 0) {
                 $.each(data['result'], function(index, value){
                     var rating = value['hotel_data']['class'];
+                    var hotel_type_id = value['hotel_data']['hotel_type_id'];
+
+                    if (typeof allDataArray[hotel_type_id] == 'undefined') {
+                        allDataArray[hotel_type_id] = [];
+                        allDataArray[hotel_type_id].push(value);
+                    } else {
+                        allDataArray[hotel_type_id].push(value);
+                    }
+
                     allDataSet.push(value);
 
                     if (rating == 1) {
@@ -1516,6 +1553,22 @@ $(document).ready(function(){
                         fiveStar.push(value);
                     } else {
                         noneStar.push(value);
+                    }
+                });
+
+                $.each(allDataArray, function(i, v) {
+
+                    if (typeof v !== 'undefined') {
+                        var hotel_type_name = hoteltypes[i]['hotel_type_name'];
+                        var html = '<div class="filteroptions-content-wrap">' +
+                            '<div class="filteroptions-content" id="'+i+'">' +
+                                '<input class="bui-checkbox__input filteroption-input" type="checkbox">' +
+                                '<span class="filter_label">'+hotel_type_name+'</span>' + 
+                                '<span class="filter_count">'+v.length+'</span>' +
+                            '</div>' +
+                        '</div>';
+
+                        $('.hotel-types').append(html);
                     }
                 });
 
@@ -1538,11 +1591,11 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-    $('.filteroption-input').click(function(){
+    $('.star-ratings .filteroption-input').click(function(){
         var dataSet = [];
         dataSet['result'] = [];
 
-        $(".filteroption-input:checked").each(function () {
+        $(".star-ratings .filteroption-input:checked").each(function () {
             var id = $(this).parent().attr('id');
             if (id == 'onestar') {
                 $.merge( dataSet['result'], oneStar );
@@ -1576,6 +1629,24 @@ $(document).ready(function(){
         if (typeof dataSet['result'] != 'undefined') {
             loadpagination(dataSet);
         }
+    });
+
+    $('.hotel-types .filteroption-input').click(function(){
+        var dataSet = [];
+        dataSet['result'] = [];
+
+        $(".hotel-types .filteroption-input:checked").each(function () {
+            var id = $(this).parent().attr('id');
+            $.merge( dataSet['result'], allDataArray[id] );
+        });
+
+        if (dataSet['result'].length == 0) {
+            dataSet['result'] = allDataSet;
+        }
+    
+        if (typeof dataSet['result'] != 'undefined') {
+            loadpagination(dataSet);
+        } 
     });
 });
 
