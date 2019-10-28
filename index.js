@@ -1540,25 +1540,36 @@ $(document).ready(function(){
 $(document).ready(function(){
     $('.filteroption-input').click(function(){
         var dataSet = [];
-        if ($(this).is(":checked")) {
-            var id = $(this).parent().attr('id');
+        dataSet['result'] = [];
 
+        $(".filteroption-input:checked").each(function () {
+            var id = $(this).parent().attr('id');
             if (id == 'onestar') {
-                dataSet['result'] = oneStar;
-            } else if (id == 'twostar') {
-                dataSet['result'] = twoStar;
-            } else if (id == 'threestar') {
-                dataSet['result'] = threeStar;
-            } else if (id == 'fourstar') {
-                dataSet['result'] = fourStar;
-            } else if (id == 'fivestar') {
-                dataSet['result'] = fiveStar;
-            } else if (id == 'nonestar') {
-                dataSet['result'] = noneStar;
-            } else {
-                dataSet['result'] = allDataSet;                
+                $.merge( dataSet['result'], oneStar );
+            } 
+
+            if (id == 'twostar') {
+                $.merge( dataSet['result'], twoStar );
+            } 
+
+            if (id == 'threestar') {
+                $.merge( dataSet['result'], threeStar );
+            } 
+
+            if (id == 'fourstar') {
+                $.merge( dataSet['result'], fourStar );
             }
-        } else {
+
+            if (id == 'fivestar') {
+                $.merge( dataSet['result'], fiveStar );
+            }
+
+            if (id == 'nonestar') {
+                $.merge( dataSet['result'], noneStar );
+            }
+        });
+
+        if (dataSet['result'].length == 0) {
             dataSet['result'] = allDataSet;
         }
     
