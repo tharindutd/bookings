@@ -28,17 +28,11 @@
 require 'header.php';
 
 $date = new \DateTime();
-$minDate = $date->format("Y-m-d");
+$minDate = $date->format("Y-m-d"); 
+
 ?>
-
-
-
 <div class="se-pre-con"></div>
-
-
-
 <!--start wrap-->
-
 <div class="container">
     <div id="main-row" class="row">
         <div id="left-side" class="col-xs-12 col-sm-12 col-md-12 col-xl-3">
@@ -114,7 +108,66 @@ $minDate = $date->format("Y-m-d");
                 </div>
 
             </div>
-            <div class="filter-main">
+            <div class="filters-main">
+                <fieldset>
+                    <div id="filterbox_options">
+                        <div class="filterbox_options_content" data-block-id="filter_options">
+                            <div class="filter_by_wrapper">
+                                <h2 class="filter_by" tabindex="-1">Filter results</h2>
+                            </div>
+                        </div>
+                        <div class="filter-content">
+                            <div class="filtercategory icon_filtercategory_container">
+                                <h3 class="filtercategory-title">Star Rating</h3>
+                            </div>
+                            <div class="filteroptions" role="group">
+                                <div class="filteroptions-content-wrap">                                    
+                                    <div class="filteroptions-content" id="onestar">
+                                        <input class="bui-checkbox__input filteroption-input" type="checkbox">
+                                        <span class="filter_label">1 star</span>
+                                        <span class="filter_count"></span>
+                                    </div>
+                                </div>
+                                <div class="filteroptions-content-wrap">                                    
+                                    <div class="filteroptions-content" id="twostar">
+                                        <input class="bui-checkbox__input filteroption-input" type="checkbox">
+                                        <span class="filter_label">2 star</span>
+                                        <span class="filter_count"></span>
+                                    </div>
+                                </div>
+                                <div class="filteroptions-content-wrap">                                    
+                                    <div class="filteroptions-content" id="threestar">
+                                        <input class="bui-checkbox__input filteroption-input" type="checkbox">
+                                        <span class="filter_label">3 star</span>
+                                        <span class="filter_count"></span>
+                                    </div>
+                                </div>
+                                <div class="filteroptions-content-wrap">                                    
+                                    <div class="filteroptions-content" id="fourstar">
+                                        <input class="bui-checkbox__input filteroption-input" type="checkbox">
+                                        <span class="filter_label">4 star</span>
+                                        <span class="filter_count"></span>
+                                    </div>
+                                </div>
+                                <div class="filteroptions-content-wrap">                                    
+                                    <div class="filteroptions-content" id="fivestar">
+                                        <input class="bui-checkbox__input filteroption-input" type="checkbox">
+                                        <span class="filter_label">5 star</span>
+                                        <span class="filter_count"></span>
+                                    </div>
+                                </div>
+                                <div class="filteroptions-content-wrap">                                    
+                                    <div class="filteroptions-content" id="nonestar">
+                                        <input class="bui-checkbox__input filteroption-input" type="checkbox">
+                                        <span class="filter_label">Unrated</span>
+                                        <span class="filter_count"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </fieldset>
+            </div>
+            <!-- <div class="filter-main">
                 <div class="filter-main-name">
 
                     <span>Filter by :<i class="fas fa-sort-amount-down"
@@ -669,7 +722,7 @@ $minDate = $date->format("Y-m-d");
                     </div>
                     <hr>
                 </div>
-            </div>
+            </div> -->
         </div>
 
 

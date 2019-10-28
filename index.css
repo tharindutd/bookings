@@ -251,6 +251,84 @@ h1{
     padding: 0px;
     float: none;
 }
+.filters-main {
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #bdbdbd;
+    margin: 0 0 10px;
+    padding: 5px;
+}
+.filters-main .filterbox_options {
+    padding:0;
+}
+.filters-main .filterbox_options_content {
+    border-bottom: 1px solid #ededed;
+}
+.filters-main .filter_by_wrapper {
+    position: static;
+    border-bottom: 1px solid #ededed;
+    padding: 8px 5px;
+}
+.filters-main .filter-content {
+    margin-top: 8px;
+}
+.filters-main .icon_filtercategory_container {
+    cursor: default;
+    padding-left: 6px;
+    position: relative;
+}
+.filters-main .filter_by {
+    position: static;
+    color: #000;
+    background: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+}
+.filters-main .filtercategory-title {
+    margin: 0;
+    padding: 4px 0;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+}
+.filters-main .filteroptions {
+    position: relative;
+}
+.filters-main .filteroptions input {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+}
+.filters-main .filteroptions-content {
+    display: block;
+    font-size: 13px;
+    line-height: 1.6em;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4285714286em;
+    position: relative;
+    min-height: 14px;
+    cursor: pointer;
+}
+.filters-main .filteroptions-content-wrap {
+    padding: 5px 2px 5px 5px;
+}
+.filters-main .filter_label {
+    display: block;
+    color: #000;
+    position: absolute;
+    left: 32px;
+}
+.filters-main .filter_count {
+    position: absolute;
+    right: 5px;
+    font-weight: normal;
+    top: 0;
+    color: #707070;
+}
 #filter-main {
     width: 100%;
     height: auto;
