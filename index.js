@@ -80,13 +80,13 @@ var cityarray = [];
 var districtarray = [];
 var regionarray = [];
 var destinationtype = "";
-var offsetvalue = 0;
+var offsetvalue = 1000;
 var cityid;
 var hoteforuniqregion;
 var hoteforuniqregiontepm = [];
 var destination = "Colombo";
 
-for (var x = 0; x < 2; x++) {
+//for (var x = 0; x < 2; x++) {
     $.ajax({
         type: 'GET',
         url: cityurl + 'offset=' + offsetvalue + '&rows=1000',
@@ -101,8 +101,8 @@ for (var x = 0; x < 2; x++) {
             cityarray.push(data);
         }
     });
-    offsetvalue = 1000;
-}
+    //offsetvalue = 1000;
+//}
 
 for (var x = 0; x < cityarray.length; x++) {
     for (var y = 0; y < cityarray[x]['result'].length; y++) {
@@ -165,6 +165,8 @@ var okadd=false;
 
 $('#search-btn').click(function () {
 
+    $('.se-pre-con').fadeIn();
+
     if ($('#destiny').val() != "") {
 
         destinationsample = $('#destiny').val();
@@ -205,6 +207,7 @@ $('#search-btn').click(function () {
         alert("Please Enter a destination");
     }
 
+    $('.se-pre-con').fadeOut();
 
 });
 
@@ -279,8 +282,6 @@ function loadHotelNameWice(destination) {
 
         }
     }
-
-
 
     if (okadd){
         tempwhere=destination;
@@ -399,16 +400,20 @@ function loadDataforuniqdistrict(destinationtype, cityid, destination) {
 }
 
 
-function loadAll(data) {
-
-
-
-//
-//     if (data['result'].length > 10) {
+function loadAll(raw_data) {
+    var data_set;
+    var hotel_id_array = [];
+    var hotel_type_id_array = [];
     for (var x = 0; x < 10; x++) {
-        $.ajax({
+        hotel_id_array.push(raw_data['result'][x]['hotel_id']);
+        hotel_type_id_array.push(raw_data['result'][x]['hotel_data']['hotel_type_id']);
+    }
+    var hotel_ids = hotel_id_array.join(',');
+    var hotel_type_ids = hotel_type_id_array.join(',');
+
+    $.ajax({
             type: 'GET',
-            url: 'https://distribution-xml.booking.com/2.4/json/hotels?hotel_ids=' + data['result'][x]['hotel_id'] + '&extras=hotel_facilities,hotel_info,hotel_photos,hotel_description',
+            url: 'https://distribution-xml.booking.com/2.4/json/hotels?hotel_ids=' + hotel_ids + '&extras=hotel_facilities,hotel_info,hotel_photos,hotel_description',
             dataType: 'json',
             async: false,
             crossDomain: true,
@@ -417,15 +422,36 @@ function loadAll(data) {
                 'Authorization': 'Basic ' + btoa(username + ':' + password)
             },
             success: function (data) {
+                data_set = data;
+            }
+    });
 
-
+    var hoteltype = "";
+    $.ajax({
+        type: 'GET',
+        url: 'https://distribution-xml.booking.com/2.4/json/hotelTypes?hotel_type_ids=' + hotel_type_ids,
+        dataType: 'json',
+        async: false,
+        crossDomain: true,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Authorization': 'Basic ' + btoa(username + ':' + password)
+        },
+        success: function (data) {
+            hoteltype = data;
+        }
+    });
+//
+//     if (data['result'].length > 10) {
+    for (var x = 0; x < 10; x++) {
+        
                 // console.log(data);
 
                 var star = "";
                 var bool = false;
-                if (data['result'][0]['hotel_data']['class'] > 0) {
+                if (data_set['result'][x]['hotel_data']['class'] > 0) {
                     bool = true;
-                    for (var ab = 0; ab < data['result'][0]['hotel_data']['class']; ab++) {
+                    for (var ab = 0; ab < data_set['result'][x]['hotel_data']['class']; ab++) {
                         star = star + '<i class="fas fa-star"></i>';
                     }
                 } else {
@@ -439,7 +465,7 @@ function loadAll(data) {
 
 
                 var ratingtype = "";
-                var hoteldatatypefont = data['result'][0]['hotel_data']['review_score'];
+                var hoteldatatypefont = data_set['result'][x]['hotel_data']['review_score'];
 
                 if (hoteldatatypefont > 9) {
                     ratingtype = "Superb";
@@ -455,23 +481,23 @@ function loadAll(data) {
 
                 var rescor;
 
-                if (data['result'][0]['hotel_data']['review_score'] != null) {
-                    rescor = data['result'][0]['hotel_data']['review_score'];
+                if (data_set['result'][x]['hotel_data']['review_score'] != null) {
+                    rescor = data_set['result'][x]['hotel_data']['review_score'];
                 } else {
                     rescor = 0;
                 }
 
                 var ccr = "";
 
-                if (data['result'][0]['hotel_data']['creditcard_required'] == false) {
+                if (data_set['result'][x]['hotel_data']['creditcard_required'] == false) {
                     ccr = '<p id="posible-credit"><i class="far fa-credit-card"></i>Reservation possible without a credit card</p>';
                 }
 
                 var facil = "";
                 var ok = false;
 
-                for (var load = 0; load < data['result'][0]['hotel_data']['hotel_facilities'].length; load++) {
-                    if (data['result'][0]['hotel_data']['hotel_facilities'][load]['hotel_facility_type_id'] == 146) {
+                for (var load = 0; load < data_set['result'][x]['hotel_data']['hotel_facilities'].length; load++) {
+                    if (data_set['result'][x]['hotel_data']['hotel_facilities'][load]['hotel_facility_type_id'] == 146) {
                         facil = '<div id="label1">BeachFront</div>';
                         ok = true;
                         break;
@@ -479,8 +505,8 @@ function loadAll(data) {
                 }
 
                 if (ok == false) {
-                    for (var load = 0; load < data['result'][0]['hotel_data']['hotel_facilities'].length; load++) {
-                        if (data['result'][0]['hotel_data']['hotel_facilities'][load]['hotel_facility_type_id'] == 43) {
+                    for (var load = 0; load < data_set['result'][x]['hotel_data']['hotel_facilities'].length; load++) {
+                        if (data_set['result'][x]['hotel_data']['hotel_facilities'][load]['hotel_facility_type_id'] == 43) {
                             facil = '<div id="label2">Breakfast included</div>';
                             ok = true;
                             break;
@@ -489,33 +515,16 @@ function loadAll(data) {
                 }
 
 
-                var hoteltype = "";
-                $.ajax({
-                    type: 'GET',
-                    url: 'https://distribution-xml.booking.com/2.4/json/hotelTypes?hotel_type_ids=' + data['result'][0]['hotel_data']['hotel_type_id'],
-                    dataType: 'json',
-                    async: false,
-                    crossDomain: true,
-                    headers: {
-                        'Access-Control-Allow-Origin': '*',
-                        'Authorization': 'Basic ' + btoa(username + ':' + password)
-                    },
-                    success: function (data) {
-                        hoteltype = data['result'][0]['name'];
-                    }
-                });
-
-                var dis = data['result'][0]['hotel_data']['hotel_description'];
+                var dis = data_set['result'][x]['hotel_data']['hotel_description'];
                 var xs = dis.split(".");
                 dis = xs[0] + '.';
 
-                var dataset = '<div id="content-init"><div class="row" style="margin: auto;"><div id="img-content" class="col-lg-4 col-md-5 col-sm-12 col-xs-12">' + facil + '<img src="' + data['result'][0]['hotel_data']['hotel_photos'][0]['url_original'] + '" alt="" id="img"></div><div id="content-side" class="col-lg-8 col-md-7 col-sm-12 col-xs-12"><div class="row" style="margin: auto;"><div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 " id="left-set"><span id="ishoteltype">' + hoteltype + '</span><span id="l-hotel-name" onclick="forindiv(this)" class="' + data['result'][0]['hotel_id'] + '">' + data['result'][0]['hotel_data']['name'] + '</span><br><span id="l-start">' + star + '</span><br><span id="map-img"><i class="fas fa-map-marker-alt"></i></span><span id="address-txt">' + data['result'][0]['hotel_data']['address'] + ', ' + data['result'][0]['hotel_data']['city'] + '</span><p id="welcome-msg">' + dis + '</p>' + ccr + '</div><div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" id="right-set"><div style="padding-left: 20px;  width: 100%"><div id="lri" style="float: left;"><p id="rate-txt">' + rescor + '</p></div></div><div id="btn-show-price"><input type="button" value="Show Prices" class="btn btn-primary btn-sh" id="'+data['result'][0]['hotel_id']+'" onclick="loadshowprice2(this)"></div></div></div></div></div></div>';
+                var dataset = '<div id="content-init"><div class="row" style="margin: auto;"><div id="img-content" class="col-lg-4 col-md-5 col-sm-12 col-xs-12">' + facil + '<img src="' + data_set['result'][x]['hotel_data']['hotel_photos'][0]['url_original'] + '" alt="" id="img"></div><div id="content-side" class="col-lg-8 col-md-7 col-sm-12 col-xs-12"><div class="row" style="margin: auto;"><div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 " id="left-set"><span id="ishoteltype">' + hoteltype['result'][x]['name'] + '</span><span id="l-hotel-name" onclick="forindiv(this)" class="' + data_set['result'][x]['hotel_id'] + '">' + data_set['result'][x]['hotel_data']['name'] + '</span><br><span id="l-start">' + star + '</span><br><span id="map-img"><i class="fas fa-map-marker-alt"></i></span><span id="address-txt">' + data_set['result'][x]['hotel_data']['address'] + ', ' + data_set['result'][x]['hotel_data']['city'] + '</span><p id="welcome-msg">' + dis + '</p>' + ccr + '</div><div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" id="right-set"><div style="padding-left: 20px;  width: 100%"><div id="lri" style="float: left;"><p id="rate-txt">' + rescor + '</p></div></div><div id="btn-show-price"><input type="button" value="Show Prices" class="btn btn-primary btn-sh" id="'+data_set['result'][x]['hotel_id']+'" onclick="loadshowprice2(this)"></div></div></div></div></div></div>';
 
                 $('#details').append(dataset);
                 // $('.wrap').show();
                 // $('#loaddiv').hide();
-            }
-        });
+            
     }
 
 }
@@ -572,7 +581,6 @@ function loadavailable(destination, from, to) {
         }
     }
 
-    console.log(cityid);
     loadspecific(destinationtype, cityid, from, to);
 }
 
@@ -626,45 +634,59 @@ function loadspecific(destinationtype, cityid, from, to) {
 function loadspecdata(data) {
     var uniqdata;
     var roomtype;
+    var room_type_ids;
+    var hotel_ids;
+    var room_type_id_array = [];
+    var hotel_id_array = [];
+
+    for (var x = 0; x < 10; x++) {
+        room_type_id_array.push(data[x]['rooms'][0]['room_type_id']);
+        hotel_id_array.push(data[x]['hotel_id']);
+    }
+
+    room_type_ids = room_type_id_array.join(',');
+    hotel_ids = hotel_id_array.join(',');
+
+    $.ajax({
+        type: 'GET',
+        url: 'https://distribution-xml.booking.com/2.4/json/roomTypes?room_type_ids=' + room_type_ids,
+        dataType: 'json',
+        async: false,
+        crossDomain: true,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Authorization': 'Basic ' + btoa(username + ':' + password)
+        },
+        success: function (data) {
+            // console.log(data);
+            roomtype = data['result'][0]['name'];
+        }
+    });
+
+
+    $.ajax({
+        type: 'GET',
+        url: 'https://distribution-xml.booking.com/2.4/json/hotels?hotel_ids=' + hotel_ids + '&extras=hotel_facilities,hotel_info,hotel_photos,hotel_description',
+        dataType: 'json',
+        async: false,
+        crossDomain: true,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Authorization': 'Basic ' + btoa(username + ':' + password)
+        },
+        success: function (data) {
+            uniqdata = data;
+        }
+    });
+
+
+
     for (var x = 0; x < 10; x++) {
 
         var roomtypeid = data[x]['rooms'][0]['room_type_id'];
         var roomtypename = data[x]['rooms'][0]['room_name'];
         var roomcount = data[x]['rooms'][0]['num_rooms_available_at_this_price'];
         var roomprice = data[x]['rooms'][0]['price'];
-
-        $.ajax({
-            type: 'GET',
-            url: 'https://distribution-xml.booking.com/2.4/json/roomTypes?room_type_ids=' + data[x]['rooms'][0]['room_type_id'],
-            dataType: 'json',
-            async: false,
-            crossDomain: true,
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Authorization': 'Basic ' + btoa(username + ':' + password)
-            },
-            success: function (data) {
-                // console.log(data);
-                roomtype = data['result'][0]['name'];
-            }
-        });
-
-
-        $.ajax({
-            type: 'GET',
-            url: 'https://distribution-xml.booking.com/2.4/json/hotels?hotel_ids=' + data[x]['hotel_id'] + '&extras=hotel_facilities,hotel_info,hotel_photos,hotel_description',
-            dataType: 'json',
-            async: false,
-            crossDomain: true,
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Authorization': 'Basic ' + btoa(username + ':' + password)
-            },
-            success: function (data) {
-                uniqdata = data;
-            }
-        });
-
 
         var star = "";
         var bool = false;
@@ -845,7 +867,7 @@ function forindiv(event) {
     }
 
     var theClass = $(event).attr('class');
-    window.location.assign('http://visit2srilanka.com/hotel-view.php?hotelid=' + theClass + '&from=' + varfrom + '&to=' + varto + '&child=' + vchild + '&adult=' + vadult + '&where=' + vwhere + '&room=' + vroom + '&status=false');
+    window.location.assign('/hotel-view.php?hotelid=' + theClass + '&from=' + varfrom + '&to=' + varto + '&child=' + vchild + '&adult=' + vadult + '&where=' + vwhere + '&room=' + vroom + '&status=false');
 }
 
 
@@ -2650,7 +2672,7 @@ function loadshowprice2(event) {
 
         var theClass = $(event).attr('id');
         console.log(theClass);
-        window.location.assign('http://visit2srilanka.com/hotel-view.php?hotelid=' + theClass + '&from=' + varfrom + '&to=' + varto + '&child=' + vchild + '&adult=' + vadult + '&where=' + vwhere + '&room=' + vroom + '&status=true');
+        window.location.assign('/hotel-view.php?hotelid=' + theClass + '&from=' + varfrom + '&to=' + varto + '&child=' + vchild + '&adult=' + vadult + '&where=' + vwhere + '&room=' + vroom + '&status=true');
 
     }
 }

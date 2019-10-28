@@ -894,14 +894,14 @@ require 'footer.php';
     var a = froms.split("-");
     if (a.length > 1) {
         f_y = a[0];
-        f_m = a[1];
+        f_m = a[1]-1;
         f_d = a[2];
     }
 
     var b = to.split("-");
     if (b.length > 1) {
         t_y = b[0];
-        t_m = b[1];
+        t_m = b[1]-1;
         t_d = b[2];
     }
 
@@ -914,8 +914,8 @@ require 'footer.php';
     var t_dd = String(to_date.getDate()).padStart(2, '0');
     var t_mm = String(to_date.getMonth() + 1).padStart(2, '0'); //January is 0!
     var t_yyyy = to_date.getFullYear();
-    start = months[from_date.getMonth() - 1] + ' ' + dd + ', ' + yyyy;
-    end = months[to_date.getMonth() - 1] + ' ' + t_dd + ', ' + t_yyyy;
+    start = months[from_date.getMonth()] + ' ' + dd + ', ' + yyyy;
+    end = months[to_date.getMonth()] + ' ' + t_dd + ', ' + t_yyyy;
 
     from_s = mm + '/' + dd + '/' + yyyy;
     to_s = t_mm + '/' + t_dd + '/' + t_yyyy;
@@ -1855,8 +1855,8 @@ require 'footer.php';
     $('#search-btn1').click(function () {
 
         var destinationsample = $('#destiny').val();
-        var from = $('#datepick1').val();
-        var to = $('#datepick2').val();
+        var from = $('#da1').val();
+        var to = $('#da2').val();
         var adult = $('#adult').val();
         var room = $('#room').val();
         var child = $('#child').val();
@@ -1870,12 +1870,12 @@ require 'footer.php';
         }
 
 
-        window.open(' http://visit2srilanka.com/result.php?destination=' + destinationsample + '&from=' + from + '&to=' + to + '&adult=' + adult + '&child=' + child + '&room=' + room + '', '_blank');
+        window.open('/hotel.php?destination=' + destinationsample + '&from=' + from + '&to=' + to + '&adult=' + adult + '&child=' + child + '&room=' + room + '', '_blank');
     });
 
 
     $('#sho').click(function () {
-        window.open(' http://visit2srilanka.com/hotel.php', '_blank');
+        window.open('/hotel.php', '_blank');
     });
 
 
@@ -2037,7 +2037,7 @@ require 'footer.php';
         }
 
 
-        window.open(' http://visit2srilanka.com/result.php?destination=' + destinationsample + '&from=' + from + '&to=' + to + '&adult=' + adult + '&child=' + child + '&room=' + room + '', '_blank');
+        window.open('/hotel.php?destination=' + destinationsample + '&from=' + from + '&to=' + to + '&adult=' + adult + '&child=' + child + '&room=' + room + '', '_blank');
 
     });
 
@@ -2058,7 +2058,7 @@ require 'footer.php';
         }
 
 
-        window.open(' http://visit2srilanka.com/result.php?destination=' + destinationsample + '&from=' + from + '&to=' + to + '&adult=' + adult + '&child=' + child + '&room=' + room + '', '_blank');
+        window.open('/hotel.php?destination=' + destinationsample + '&from=' + from + '&to=' + to + '&adult=' + adult + '&child=' + child + '&room=' + room + '', '_blank');
     });
 
 
