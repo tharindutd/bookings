@@ -1474,7 +1474,16 @@ $(document).ready(function () {
     });
 });
 
+$(document).click('#search-btn', function(){
+    loadfilters();
+});
+
 $(document).ready(function(){
+    loadfilters();
+});
+
+function loadfilters()
+{
     var destination = $('#destiny').val();
 
     cityid = 0;
@@ -1588,7 +1597,7 @@ $(document).ready(function(){
             }
         }
     });
-});
+}
 
 $(document).ready(function(){
     $('.star-ratings .filteroption-input').click(function(){
