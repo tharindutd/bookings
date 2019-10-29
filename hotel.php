@@ -33,6 +33,10 @@ $minDate = $date->format("Y-m-d");
 
 $hfrom = '';
 $hto = '';
+$destination = '';
+$adult = '';
+$child = '';
+$room = '';
 
 if (isset($_GET['from'])) {
     $hfrom = $_GET['from'];
@@ -40,6 +44,22 @@ if (isset($_GET['from'])) {
 
 if (isset($_GET['to'])) {
     $hto = $_GET['to'];
+}
+
+if (isset($_GET['destination'])) {
+    $destination = $_GET['destination'];
+}
+
+if (isset($_GET['adult'])) {
+    $adult = $_GET['adult'];
+}
+
+if (isset($_GET['child'])) {
+    $child = $_GET['child'];
+}
+
+if (isset($_GET['room'])) {
+    $room = $_GET['room'];
 }
 
 ?>
@@ -51,7 +71,7 @@ if (isset($_GET['to'])) {
             <div id="main-search">
                 <span id="s-name">Search</span><br>
                 <span class="d-txt">Destination </span>
-                <input type="search" class="form-control destiny1" id="destiny" list="districtset" value="Colombo">
+                <input type="search" class="form-control destiny1" id="destiny" list="districtset" value="<?php echo $destination; ?>">
                 <datalist id="districtset">
 
                 </datalist>
@@ -71,11 +91,18 @@ if (isset($_GET['to'])) {
                 <select name="adult" id="adult" class="form-control adult1">
                     <?php
                     for ($var1 = 1; $var1 <= 30; $var1++) {
+                        if ($var1." ADULT" == $adult) {
+                        ?>
+                            <option selected value="<?php echo $var1 ?> ADULT"><?php echo $var1 ?> ADULT</option>
+                        <?php
+                        } else {
                         ?>
 
                         <option value="<?php echo $var1 ?> ADULT"><?php echo $var1 ?> ADULT</option>
 
-                    <?php }
+                    <?php 
+                        }
+                    }
                     ?>
                 </select>
 
@@ -84,11 +111,18 @@ if (isset($_GET['to'])) {
                         <option value="0 CHILDREN">0 CHILDREN</option>
                         <?php
                         for ($var1 = 1; $var1 <= 15; $var1++) {
-                            ?>
+                            if ($var1." CHILDREN" == $child) {
+                        ?>
+                            <option selected value="<?php echo $var1 ?> CHILDREN"><?php echo $var1 ?> CHILDREN</option>
+                        <?php
+                            } else {
+                        ?>
 
                             <option value="<?php echo $var1 ?> CHILDREN"><?php echo $var1 ?> CHILDREN</option>
 
-                        <?php }
+                        <?php 
+                            }
+                        }
                         ?>
                     </select>
 
@@ -97,11 +131,17 @@ if (isset($_GET['to'])) {
                         <option value="1 ROOM">1 ROOM</option>
                         <?php
                         for ($var1 = 2; $var1 <= 30; $var1++) {
-                            ?>
-
+                            if ($var1." ROOM" == $room) {
+                        ?>
+                            <option selected value="<?php echo $var1 ?> ROOM"><?php echo $var1 ?> ROOM</option>
+                        <?php
+                            } else {
+                        ?>
                             <option value="<?php echo $var1 ?> ROOM"><?php echo $var1 ?> ROOM</option>
 
-                        <?php }
+                        <?php 
+                            }
+                        }
                         ?>
                     </select>
 
@@ -994,6 +1034,8 @@ $(function() {
     // // end drop down
 
     function loaddefault() {
+        var destination = "<?php echo $destination; ?>";
+        //$('#destiny').val(destination);
 
         var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         var today = new Date();
@@ -1038,7 +1080,7 @@ $(function() {
         $("#span-datepick2").val(end);
 
 
-        loadHotelNameWice('Colombo');
+        loadHotelNameWice(destination);
 
         $('.se-pre-con').fadeOut();
     }
