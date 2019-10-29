@@ -129,10 +129,10 @@ if (isset($_GET['to'])) {
                             </div>
                         </div>
                         <div class="filter-content">
-                            <div class="filtercategory icon_filtercategory_container">
+                            <div class="filtercategory start-rating-header icon_filtercategory_container">
                                 <h3 class="filtercategory-title">Star Rating</h3>
                             </div>
-                            <div class="filteroptions" role="group">
+                            <div class="filteroptions star-ratings" role="group">
                                 <div class="filteroptions-content-wrap">                                    
                                     <div class="filteroptions-content" id="onestar">
                                         <input class="bui-checkbox__input filteroption-input" type="checkbox">
@@ -174,6 +174,11 @@ if (isset($_GET['to'])) {
                                         <span class="filter_label">Unrated</span>
                                         <span class="filter_count"></span>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="filteroptions hotel-types" role="group">
+                                <div class="filtercategory hotel-types-header icon_filtercategory_container">
+                                    <h3 class="filtercategory-title">Property Type</h3>
                                 </div>
                             </div>
                         </div>
