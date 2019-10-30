@@ -58,6 +58,7 @@ $arr5 = json_decode($response5, true);
     <link type="text/css" rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
           integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
     <title>VISIT 2 SRI LANKA | Hotel-View</title>
 
@@ -185,18 +186,18 @@ require 'modal.php';
                 <spann class="d-txt">Check-in date</spann>
 
                 <div class="d-pic">
-                    <p><span><i class="fas fa-calendar-alt d-p from"></i></span> <input type="date"
+                    <p><span><i class="fas fa-calendar-alt d-p from"></i></span> <input type="hidden"
                                 style="width: 150px; border: none;" id="da1" class="checkin"
-                                placeholder="check-in-date">
+                                placeholder="check-in-date"><input id="span-datepick1" style="border: none;" class="daterange" type="text" placeholder=""><span class="daterange" id="span-datepick1" style="width:100%"></span>
                     </p>
                 </div>
 
 
                 <spann class="d-txt">Check-out date</spann>
                 <div class="d-pic">
-                    <p><span><i class="fas fa-calendar-alt d-p to"></i></span> <input type="date"
+                    <p><span><i class="fas fa-calendar-alt d-p to"></i></span> <input type="hidden"
                                 style="width: 150px; border: none;" id="da2" class="checkout"
-                                placeholder="check-out-date"></p>
+                                placeholder="check-out-date"><input id="span-datepick2"  style="border: none;background: none" class="daterange" type="text" placeholder=""><span class="daterange2" id="span-datepick2" style="width:100%"></span></p>
                 </div>
 
                 <select name="adult" id="adult" class="form-control adult">
@@ -886,7 +887,76 @@ require 'footer.php';
             return $(content).html();
         }
     });
-    })
+    });
+
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    var a = froms.split("-");
+    if (a.length > 1) {
+        f_y = a[0];
+        f_m = a[1]-1;
+        f_d = a[2];
+    }
+
+    var b = to.split("-");
+    if (b.length > 1) {
+        t_y = b[0];
+        t_m = b[1]-1;
+        t_d = b[2];
+    }
+
+    var from_date = new Date(f_y, f_m, f_d);
+    var to_date = new Date(t_y, t_m, t_d);
+    var dd = String(from_date.getDate()).padStart(2, '0');
+    var mm = String(from_date.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = from_date.getFullYear();
+
+    var t_dd = String(to_date.getDate()).padStart(2, '0');
+    var t_mm = String(to_date.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var t_yyyy = to_date.getFullYear();
+    start = months[from_date.getMonth()] + ' ' + dd + ', ' + yyyy;
+    end = months[to_date.getMonth()] + ' ' + t_dd + ', ' + t_yyyy;
+
+    from_s = mm + '/' + dd + '/' + yyyy;
+    to_s = t_mm + '/' + t_dd + '/' + t_yyyy;
+
+    $('#da1').val(from_s);
+    $('#da2').val(to_s);
+    $("#span-datepick1").val(start);
+    $("#span-datepick2").val(end);
+
+    $(function() {
+     $('.daterange').daterangepicker({
+       locale: {
+         format: 'MMMM D, YYYY'
+       },
+       autoApply:true,
+       autoUpdateInput:false,
+     }, function(start, end, label) {
+       $("#span-datepick1").val(start.format('MMMM D, YYYY'));
+       $("#span-datepick2").val(end.format('MMMM D, YYYY'));
+       $("#datepick1").val(start.format('M/DD/YYYY'));
+       $("#datepick2").val(end.format('M/DD/YYYY'));
+     });
+
+   });
+
+   $(function() {
+     $('.daterange2').daterangepicker({
+       locale: {
+         format: 'MMMM D, YYYY'
+       },
+       autoApply:true,
+       autoUpdateInput:false,
+     }, function(start, end, label) {
+       $("#span-datepick1").val(start.format('MMMM D, YYYY'));
+       $("#span-datepick2").val(end.format('MMMM D, YYYY'));
+       $("#datepick1").val(start.format('M/DD/YYYY'));
+       $("#datepick2").val(end.format('M/DD/YYYY'));
+     });
+
+   });
+
 
     // start load top bar detail
 
@@ -1785,8 +1855,8 @@ require 'footer.php';
     $('#search-btn1').click(function () {
 
         var destinationsample = $('#destiny').val();
-        var from = $('#datepick1').val();
-        var to = $('#datepick2').val();
+        var from = $('#da1').val();
+        var to = $('#da2').val();
         var adult = $('#adult').val();
         var room = $('#room').val();
         var child = $('#child').val();
@@ -1800,12 +1870,12 @@ require 'footer.php';
         }
 
 
-        window.open(' http://visit2srilanka.com/result.php?destination=' + destinationsample + '&from=' + from + '&to=' + to + '&adult=' + adult + '&child=' + child + '&room=' + room + '', '_blank');
+        window.open('/hotel.php?destination=' + destinationsample + '&from=' + from + '&to=' + to + '&adult=' + adult + '&child=' + child + '&room=' + room + '', '_blank');
     });
 
 
     $('#sho').click(function () {
-        window.open(' http://visit2srilanka.com/hotel.php', '_blank');
+        window.open('/hotel.php', '_blank');
     });
 
 
@@ -1967,7 +2037,7 @@ require 'footer.php';
         }
 
 
-        window.open(' http://visit2srilanka.com/result.php?destination=' + destinationsample + '&from=' + from + '&to=' + to + '&adult=' + adult + '&child=' + child + '&room=' + room + '', '_blank');
+        window.open('/hotel.php?destination=' + destinationsample + '&from=' + from + '&to=' + to + '&adult=' + adult + '&child=' + child + '&room=' + room + '', '_blank');
 
     });
 
@@ -1988,13 +2058,15 @@ require 'footer.php';
         }
 
 
-        window.open(' http://visit2srilanka.com/result.php?destination=' + destinationsample + '&from=' + from + '&to=' + to + '&adult=' + adult + '&child=' + child + '&room=' + room + '', '_blank');
+        window.open('/hotel.php?destination=' + destinationsample + '&from=' + from + '&to=' + to + '&adult=' + adult + '&child=' + child + '&room=' + room + '', '_blank');
     });
 
 
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script src="http://maps.google.com/maps/api/js?sensor=false&callback=initialize" ></script>
 
 </body>

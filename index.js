@@ -166,6 +166,8 @@ var okadd=false;
 
 $('#search-btn').click(function () {
 
+    $('.se-pre-con').fadeIn();
+
     if ($('#destiny').val() != "") {
 
         destinationsample = $('#destiny').val();
@@ -206,6 +208,7 @@ $('#search-btn').click(function () {
         alert("Please Enter a destination");
     }
 
+    $('.se-pre-con').fadeOut();
 
 });
 
@@ -280,8 +283,6 @@ function loadHotelNameWice(destination) {
 
         }
     }
-
-
 
     if (okadd){
         tempwhere=destination;
@@ -846,7 +847,7 @@ function forindiv(event) {
     }
 
     var theClass = $(event).attr('class');
-    window.location.assign('http://visit2srilanka.com/hotel-view.php?hotelid=' + theClass + '&from=' + varfrom + '&to=' + varto + '&child=' + vchild + '&adult=' + vadult + '&where=' + vwhere + '&room=' + vroom + '&status=false');
+    window.location.assign('/hotel-view.php?hotelid=' + theClass + '&from=' + varfrom + '&to=' + varto + '&child=' + vchild + '&adult=' + vadult + '&where=' + vwhere + '&room=' + vroom + '&status=false');
 }
 
 
@@ -2730,7 +2731,7 @@ function loadshowprice2(event) {
 
         var theClass = $(event).attr('id');
         console.log(theClass);
-        window.location.assign('http://visit2srilanka.com/hotel-view.php?hotelid=' + theClass + '&from=' + varfrom + '&to=' + varto + '&child=' + vchild + '&adult=' + vadult + '&where=' + vwhere + '&room=' + vroom + '&status=true');
+        window.location.assign('/hotel-view.php?hotelid=' + theClass + '&from=' + varfrom + '&to=' + varto + '&child=' + vchild + '&adult=' + vadult + '&where=' + vwhere + '&room=' + vroom + '&status=true');
 
     }
 }

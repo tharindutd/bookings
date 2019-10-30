@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link type="text/css" href="one.css" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="index.css">
     <link type="text/css" rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -17,7 +18,7 @@
 <!--            crossorigin="anonymous"></script>-->
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-          integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+          integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <title>VISIT 2 SRI LANKA | HOTELS</title>
 </head>
@@ -28,7 +29,38 @@
 require 'header.php';
 
 $date = new \DateTime();
-$minDate = $date->format("Y-m-d"); 
+$minDate = $date->format("Y-m-d");
+
+$hfrom = '';
+$hto = '';
+$destination = '';
+$adult = '';
+$child = '';
+$room = '';
+
+if (isset($_GET['from'])) {
+    $hfrom = $_GET['from'];
+}
+
+if (isset($_GET['to'])) {
+    $hto = $_GET['to'];
+}
+
+if (isset($_GET['destination'])) {
+    $destination = $_GET['destination'];
+}
+
+if (isset($_GET['adult'])) {
+    $adult = $_GET['adult'];
+}
+
+if (isset($_GET['child'])) {
+    $child = $_GET['child'];
+}
+
+if (isset($_GET['room'])) {
+    $room = $_GET['room'];
+}
 
 ?>
 <div class="se-pre-con"></div>
@@ -39,7 +71,7 @@ $minDate = $date->format("Y-m-d");
             <div id="main-search">
                 <span id="s-name">Search</span><br>
                 <span class="d-txt">Destination </span>
-                <input type="search" class="form-control destiny1" id="destiny" list="districtset" value="Colombo">
+                <input type="search" class="form-control destiny1" id="destiny" list="districtset" value="<?php echo $destination; ?>">
                 <datalist id="districtset">
 
                 </datalist>
@@ -59,11 +91,18 @@ $minDate = $date->format("Y-m-d");
                 <select name="adult" id="adult" class="form-control adult1">
                     <?php
                     for ($var1 = 1; $var1 <= 30; $var1++) {
+                        if ($var1." ADULT" == $adult) {
+                        ?>
+                            <option selected value="<?php echo $var1 ?> ADULT"><?php echo $var1 ?> ADULT</option>
+                        <?php
+                        } else {
                         ?>
 
                         <option value="<?php echo $var1 ?> ADULT"><?php echo $var1 ?> ADULT</option>
 
-                    <?php }
+                    <?php 
+                        }
+                    }
                     ?>
                 </select>
 
@@ -72,11 +111,18 @@ $minDate = $date->format("Y-m-d");
                         <option value="0 CHILDREN">0 CHILDREN</option>
                         <?php
                         for ($var1 = 1; $var1 <= 15; $var1++) {
-                            ?>
+                            if ($var1." CHILDREN" == $child) {
+                        ?>
+                            <option selected value="<?php echo $var1 ?> CHILDREN"><?php echo $var1 ?> CHILDREN</option>
+                        <?php
+                            } else {
+                        ?>
 
                             <option value="<?php echo $var1 ?> CHILDREN"><?php echo $var1 ?> CHILDREN</option>
 
-                        <?php }
+                        <?php 
+                            }
+                        }
                         ?>
                     </select>
 
@@ -85,11 +131,17 @@ $minDate = $date->format("Y-m-d");
                         <option value="1 ROOM">1 ROOM</option>
                         <?php
                         for ($var1 = 2; $var1 <= 30; $var1++) {
-                            ?>
-
+                            if ($var1." ROOM" == $room) {
+                        ?>
+                            <option selected value="<?php echo $var1 ?> ROOM"><?php echo $var1 ?> ROOM</option>
+                        <?php
+                            } else {
+                        ?>
                             <option value="<?php echo $var1 ?> ROOM"><?php echo $var1 ?> ROOM</option>
 
-                        <?php }
+                        <?php 
+                            }
+                        }
                         ?>
                     </select>
 
@@ -825,7 +877,7 @@ $(function() {
 
     $(window).load(function() {
         // Animate loader off screen
-        $(".se-pre-con").hide();
+        //$(".se-pre-con").hide();
     });
 
 
@@ -982,13 +1034,33 @@ $(function() {
     // // end drop down
 
     function loaddefault() {
-
-
-        $('.se-pre-con').fadeOut();
+        var destination = "<?php echo $destination; ?>";
+        //$('#destiny').val(destination);
 
         var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         var today = new Date();
         var tomorrow = new Date(Date.now() + 24 * 60 * 60 * 1000);
+
+        var froms = "<?php echo $hfrom; ?>";
+        var to = "<?php echo $hto; ?>";
+        if (froms != '') {
+            var a = froms.split("-");
+            if (a.length > 1) {
+                f_y = a[0];
+                f_m = a[1]-1;
+                f_d = a[2];
+            }
+
+            var b = to.split("-");
+            if (b.length > 1) {
+                t_y = b[0];
+                t_m = b[1]-1;
+                t_d = b[2];
+            }
+
+            today = new Date(f_y, f_m, f_d);
+            tomorrow = new Date(t_y, t_m, t_d);
+        }
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
         var yyyy = today.getFullYear();
@@ -1008,11 +1080,9 @@ $(function() {
         $("#span-datepick2").val(end);
 
 
-        loadHotelNameWice('Colombo');
+        loadHotelNameWice(destination);
 
-
-
-
+        $('.se-pre-con').fadeOut();
     }
 
 </script>
